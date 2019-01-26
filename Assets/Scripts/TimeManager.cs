@@ -9,16 +9,7 @@ public class TimeManager : MonoBehaviour
 
   private const float SECONDS_PER_HOUR = 45;
 
-  // iterates from 1 to NUM_Hours.  Note that even though it is an int, actions can be scheduled for hour 3.5, for example
-  private int CurrentHour = 0;
-
-  // Update is called once per frame
-  void Update()
-  {
-    CurrentHour = (int)Mathf.Floor(timeToGameTime());
-  }
-
-  /**Converts the time in seconds from unity to our game time, in hours.   */
+  // Converts the time in seconds from unity to our game time, in hours.
   public float timeToGameTime()
   {
     return Time.time / SECONDS_PER_HOUR;
