@@ -13,7 +13,7 @@ public class Player : MonoBehaviour
   private Rigidbody2D rb2d;
   private PlayerInteractable interactableHoveringOver;
 
-  private bool isCarryingItem;
+    public bool isCarryingItem = false;
   private GameObject pickedUpItem;
 
   //State to check if we can be discovered. we are only discoverable if we're holding an object
@@ -153,7 +153,6 @@ public class Player : MonoBehaviour
   private GameObject GameObjectBelowMouse()
   {
     GameObject clickedObject = null;
-
     Camera cam = Camera.main;
     RaycastHit2D hit = Physics2D.Raycast(cam.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
     if (hit.collider != null)

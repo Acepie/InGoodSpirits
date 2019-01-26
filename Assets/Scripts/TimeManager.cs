@@ -4,7 +4,7 @@ public class TimeManager
 {
     private const int NUM_HOURS = 16;
 
-    private const float SECONDS_PER_HOUR = 45;
+    private const float SECONDS_PER_HOUR = 20;
 
     // Converts the time in seconds from unity to our game time, in hours.
     public float timeToGameTime()

@@ -30,7 +30,7 @@ public class Routine : MonoBehaviour
         StopCoroutine(routineCoroutine);
     }
 
-    public void Start()
+    public void StartRoutine()
     {
         routineCoroutine = DoActions();
         StartCoroutine(routineCoroutine);

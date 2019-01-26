@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class DrawGizmos : MonoBehaviour
 {
+    public Color c;
     public float radius;
 
     private void OnDrawGizmos()
     {
-        Gizmos.color = Color.cyan;
+        Gizmos.color = c;
         Gizmos.DrawSphere(transform.position, radius);
     }
 }
