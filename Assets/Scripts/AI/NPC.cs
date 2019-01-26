@@ -22,10 +22,25 @@ public class NPC : MonoBehaviour, INPC
   {
     rb2d = GetComponent<Rigidbody2D>();
     routines = GetComponent<Routine>();
-    EmoteSlot.enabled = false;
     elevatorManager = GameObject.FindGameObjectWithTag("Elevator Manager").GetComponent<ElevatorManager>();
     friendSet = new HashSet<NPC>();
+    SetEmoteSlot();
+
   }
+    
+    protected void SetEmoteSlot()
+    {
+        if (EmoteSlot == null)
+        {
+            foreach (SpriteRenderer sr in GetComponentsInChildren<SpriteRenderer>())
+            {
+                if (sr.tag == "Emote Slot")
+                {
+                    EmoteSlot = sr;
+                }
+            }
+        }
+    }
 
   public void SetVelocity(Vector2 vel)
   {

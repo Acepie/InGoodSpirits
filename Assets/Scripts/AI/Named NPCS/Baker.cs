@@ -2,6 +2,11 @@
 
 public class Baker : NPC
 {
+
+    new void Awake()
+    {
+        base.Awake();
+    }
     // Use this for initialization
     private void Start()
     {

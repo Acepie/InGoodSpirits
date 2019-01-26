@@ -83,6 +83,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2450660258486646588, guid: 2455a83bece49c648b6102f5e23d0a65,
+        type: 3}
+      propertyPath: m_TagString
+      value: Emote Tag
+      objectReference: {fileID: 0}
     - target: {fileID: 723207555472972304, guid: 2455a83bece49c648b6102f5e23d0a65,
         type: 3}
       propertyPath: parent_Script
