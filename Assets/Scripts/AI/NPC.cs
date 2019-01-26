@@ -4,25 +4,39 @@ using UnityEngine;
 
 public class NPC : MonoBehaviour, INPC
 {
-  public float speed;
-  private Rigidbody2D rb2d;
-  private IEnumerator coroutine;
-  public Routine routines;
-
-  [SerializeField]
   public SpriteRenderer EmoteSlot;
-
   public HashSet<NPC> friendSet;
+  public Routine routines;
+  public GameObject itemToCreate;
+  public float speed;
 
   protected ElevatorManager elevatorManager;
+
+  private Rigidbody2D rb2d;
+  private IEnumerator coroutine;
 
   protected void Awake()
   {
     rb2d = GetComponent<Rigidbody2D>();
     routines = GetComponent<Routine>();
-    EmoteSlot.enabled = false;
     elevatorManager = GameObject.FindGameObjectWithTag("Elevator Manager").GetComponent<ElevatorManager>();
     friendSet = new HashSet<NPC>();
+    SetEmoteSlot();
+
+  }
+
+  protected void SetEmoteSlot()
+  {
+    if (EmoteSlot == null)
+    {
+      foreach (SpriteRenderer sr in GetComponentsInChildren<SpriteRenderer>())
+      {
+        if (sr.tag == "Emote Slot")
+        {
+          EmoteSlot = sr;
+        }
+      }
+    }
   }
 
   public void SetVelocity(Vector2 vel)
@@ -52,6 +66,11 @@ public class NPC : MonoBehaviour, INPC
     {
       EmoteSlot.enabled = true;
     }
+  }
+
+  protected void StartRoutine()
+  {
+    routines.StartRoutine();
   }
 
   public void SetEmoteVisibility(bool i_visible)

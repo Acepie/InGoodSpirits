@@ -223,7 +223,7 @@ PrefabInstance:
     - target: {fileID: 5370035821938297065, guid: 98aa7a85d68b300439b2b234c3cfc4fe,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.76
+      value: 0.34
       objectReference: {fileID: 0}
     - target: {fileID: 5370035821938297065, guid: 98aa7a85d68b300439b2b234c3cfc4fe,
         type: 3}
@@ -555,6 +555,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 478b0e55c7827bd44ba98dc5f81b06de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  c: {r: 0, g: 0, b: 0, a: 0}
   radius: 0.5
 --- !u!61 &751220639
 BoxCollider2D:
@@ -1010,6 +1011,7 @@ MonoBehaviour:
   maxSpeed: 7.5
   controlLoss: 0
   itemPickupRadius: 1
+  isCarryingItem: 0
   isDiscoverable: 0
 --- !u!50 &1188931315
 Rigidbody2D:

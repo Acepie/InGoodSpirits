@@ -11,9 +11,14 @@ public class VisionChecker : MonoBehaviour
     [SerializeField]
     private Sprite suspicious_sprite;
     [SerializeField]
-    private NPC parent_Script;
+    protected NPC parent_Script;
     [SerializeField]
     private Sprite happyFace;
+
+    private void Awake()
+    {
+        parent_Script = GetComponentInParent<NPC>();
+    }
 
     //Checks for player specific detection.  set to true if you want the npc to detect 
     private bool is_playerDetectable = true;
@@ -24,7 +29,7 @@ public class VisionChecker : MonoBehaviour
        {
         Player player = col.gameObject.GetComponent<Player>();
 
-        if (is_playerDetectable && !player.isDiscoverable)
+        if (is_playerDetectable && player.isCarryingItem)
         {
             float x_dist = col.gameObject.transform.position.x - gameObject.transform.position.x;
             if (x_dist > 0 )
