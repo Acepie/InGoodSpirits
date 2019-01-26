@@ -4,16 +4,20 @@ using UnityEngine;
 
 public class NPC : MonoBehaviour, INPC
 {
+
+  public enum FacingDirection { RIGHT, LEFT };
+
+  public float speed;
+  Rigidbody2D rb2d;
+  IEnumerator coroutine;
+  public Routine routines;
+  [SerializeField]
   public SpriteRenderer EmoteSlot;
   public HashSet<NPC> friendSet;
-  public Routine routines;
   public GameObject itemToCreate;
-  public float speed;
 
   protected ElevatorManager elevatorManager;
-
-  private Rigidbody2D rb2d;
-  private IEnumerator coroutine;
+  public FacingDirection direction = FacingDirection.RIGHT;
 
   protected void Awake()
   {
