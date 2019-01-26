@@ -18,6 +18,8 @@ public class NPC : MonoBehaviour, INPC
 
   protected ElevatorManager elevatorManager;
 
+  public HashSet<NPC> friendSet;
+
   protected void Awake()
   {
     rb2d = GetComponent<Rigidbody2D>();
