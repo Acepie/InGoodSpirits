@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Elevator Manager
+  - NPC
   layers:
   - Default
   - TransparentFX
