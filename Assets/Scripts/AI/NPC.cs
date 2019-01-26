@@ -31,7 +31,7 @@ public class NPC : MonoBehaviour, INPC
     {
       foreach (SpriteRenderer sr in GetComponentsInChildren<SpriteRenderer>())
       {
-        if (sr.tag == "Emote Slot")
+        if (sr.tag == "Emote Tag")
         {
           EmoteSlot = sr;
         }
