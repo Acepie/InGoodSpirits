@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public interface IInteractable {
+public interface AIInteractable
+{
 
-    void OnInteract(INPC n);
+  void OnInteract(INPC n);
 
 }

@@ -4,42 +4,39 @@ using UnityEngine;
 
 [SerializeField]
 public class MoveTo : IAction
-{ 
-    public Vector3 destination;
-    bool isMoving = false;
-    IEnumerator moveCoroutine;
-    NPC n;
-    
-    public MoveTo(Vector3 d, NPC n_)
-    {
-        destination = d;
-        n = n_;
-    }
+{
+  public Vector2 destination;
+  IEnumerator moveCoroutine;
+  NPC n;
 
-    public void SetDestination(Vector3 dest)
-    {
-        destination = dest;
-    }
+  public MoveTo(Vector2 d, NPC n_)
+  {
+    destination = d;
+    n = n_;
+  }
 
-    IEnumerator IAction.DoAction()
-    {
-        return Move(destination);
-    }
+  public void SetDestination(Vector2 dest)
+  {
+    destination = dest;
+  }
 
-    private IEnumerator Move(Vector3 destination)
-    {
-        isMoving = true;
+  IEnumerator IAction.DoAction()
+  {
+    return Move(destination);
+  }
 
-        float dist = Vector2.Distance(n.transform.position, destination);
-        while (dist > 0.1)
-        {
-            Vector2 dir = destination - n.transform.position;
-            n.SetVelocity(dir.normalized * n.speed);
-            dist = Vector2.Distance(n.transform.position, destination);
-            yield return null;
-        }
-        n.SetVelocity(Vector2.zero);
-        isMoving = false;
-        yield return null;
+  private IEnumerator Move(Vector2 destination)
+  {
+
+    float dist = Vector2.Distance(n.GetPos(), destination);
+    while (dist > 0.1)
+    {
+      Vector2 dir = destination - n.GetPos();
+      n.SetVelocity(dir.normalized * n.speed);
+      dist = Vector2.Distance(n.transform.position, destination);
+      yield return null;
     }
+    n.SetVelocity(Vector2.zero);
+    yield return null;
+  }
 }

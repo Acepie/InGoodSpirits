@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Elevator : AbstractInteractable
+public class Elevator : MonoBehaviour, AIInteractable
 {
-    public override void OnInteract(INPC n)
-    {
-        n.AddAction(new UseElevator(n, Floor.Ground));
-    }
+  public void OnInteract(INPC n)
+  {
+    n.AddAction(new UseElevator(n, Floor.Ground));
+  }
 
 }
