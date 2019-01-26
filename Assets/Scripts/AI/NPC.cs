@@ -4,23 +4,18 @@ using UnityEngine;
 
 public class NPC : MonoBehaviour, INPC
 {
-    public float speed;
-    private Rigidbody2D rb2d;
-    private IEnumerator coroutine;
+    public SpriteRenderer EmoteSlot;
+    public HashSet<NPC> friendSet;
     public Routine routines;
     public GameObject itemToCreate;
+    public float speed;
 
+    protected ElevatorManager elevatorManager;
 
-  [SerializeField]
-  public SpriteRenderer EmoteSlot;
+    private Rigidbody2D rb2d;
+    private IEnumerator coroutine;
 
-  public HashSet<NPC> friendSet;
-
-  protected ElevatorManager elevatorManager;
-
-  public HashSet<NPC> friendSet;
-
-  protected void Awake()
+    protected void Awake()
   {
     rb2d = GetComponent<Rigidbody2D>();
     routines = GetComponent<Routine>();

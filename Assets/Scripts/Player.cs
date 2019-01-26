@@ -13,7 +13,7 @@ public class Player : MonoBehaviour
   private Rigidbody2D rb2d;
   private PlayerInteractable interactableHoveringOver;
 
-  private bool isCarryingItem;
+    public bool isCarryingItem = false;
   private GameObject pickedUpItem;
 
   //State to check if we can be discovered. we are only discoverable if we're holding an object
@@ -167,13 +167,8 @@ public class Player : MonoBehaviour
   {
     if (!isCarryingItem)
     {
-
-        pickedUpItem.GetComponent<PickupInteractable>().Drop(transform.position);
-        isCarryingItem = false;
-
       pickedUpItem = api.gameObject;
       isCarryingItem = true;
-
     }
     else
     {

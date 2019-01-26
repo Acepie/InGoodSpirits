@@ -1,6 +1,9 @@
 using System.Collections;
 using UnityEngine;
 
+/// <summary>
+/// In game time
+/// </summary>
 public class Wait : IAction
 {
     private float time;

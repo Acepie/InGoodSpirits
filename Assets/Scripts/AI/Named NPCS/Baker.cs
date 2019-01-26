@@ -21,6 +21,7 @@ public class Baker : NPC
 
     private void SetRoutine()
     {
+        routines.AddAction(new Wait(.25f));
         routines.AddAction(new EnableItem(itemToCreate));
     }
 }
