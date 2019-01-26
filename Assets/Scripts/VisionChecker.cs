@@ -42,7 +42,8 @@ public class VisionChecker : MonoBehaviour
       if (is_playerDetectable && player.isCarryingItem)
       {
         float x_dist = col.gameObject.transform.position.x - gameObject.transform.position.x;
-        if (x_dist > 0)
+        if ((parent_Script.direction == NPC.FacingDirection.RIGHT && x_dist > 0)
+        || (parent_Script.direction == NPC.FacingDirection.LEFT && x_dist < 0))
         {
           parent_Script.SetEmote(suspicious_sprite, true);
         }
