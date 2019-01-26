@@ -30,10 +30,11 @@ public class MoveTo : IAction
     private IEnumerator Move(Vector3 destination)
     {
         isMoving = true;
-        Vector2 dir = destination - n.transform.position;
+
         float dist = Vector2.Distance(n.transform.position, destination);
         while (dist > 0.1)
         {
+            Vector2 dir = destination - n.transform.position;
             n.SetVelocity(dir.normalized * n.speed);
             dist = Vector2.Distance(n.transform.position, destination);
             yield return null;
