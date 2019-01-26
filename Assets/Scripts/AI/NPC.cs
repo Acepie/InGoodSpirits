@@ -10,10 +10,17 @@ public class NPC : MonoBehaviour, INPC
   IEnumerator coroutine;
   public Routine routines;
 
+  [SerializeField]
+  public SpriteRenderer EmoteSlot;
+  protected ElevatorManager elevatorManager;
+
+
   protected void Awake()
   {
     rb2d = GetComponent<Rigidbody2D>();
     routines = GetComponent<Routine>();
+    elevatorManager = GameObject.FindGameObjectWithTag("Elevator Manager").GetComponent<ElevatorManager>();
+    EmoteSlot.enabled = false;
   }
 
   public void SetVelocity(Vector2 vel)
