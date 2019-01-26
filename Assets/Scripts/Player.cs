@@ -15,9 +15,13 @@ public class Player : MonoBehaviour
   Rigidbody2D rb2d;
   PlayerInteractable interactableHoveringOver;
 
+  //State to check if we can be discovered. we are only discoverable if we're holding an object
+  public bool isDiscoverable = false;
+
   private void Awake()
   {
     rb2d = GetComponent<Rigidbody2D>();
+    isDiscoverable = false;
   }
 
   // Update is called once per frame
