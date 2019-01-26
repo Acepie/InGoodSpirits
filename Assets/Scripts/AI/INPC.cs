@@ -1,10 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public interface INPC
 {
-  void SetVelocity(Vector2 vel);
-  void AddAction(IAction a);
-  void SetPos(Vector2 v);
+    void SetVelocity(Vector2 vel);
+
+    void AddAction(IAction a);
+
+    void SetPos(Vector2 v);
 }

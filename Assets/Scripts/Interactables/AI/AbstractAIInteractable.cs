@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class AbstractInteractable : MonoBehaviour, PlayerInteractable
+public class AbstractAIInteractable : MonoBehaviour, PlayerInteractable
 {
   protected bool mouseOver = false;
 

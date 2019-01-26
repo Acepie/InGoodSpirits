@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Elevator Manager
   - NPC
+  - Emote Tag
   layers:
   - Default
   - TransparentFX

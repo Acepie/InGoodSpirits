@@ -5,7 +5,7 @@ using UnityEngine;
 public class NPC : MonoBehaviour, INPC
 {
 
-  public enum FacingDirection {RIGHT, LEFT};
+  public enum FacingDirection { RIGHT, LEFT };
 
   public float speed;
   Rigidbody2D rb2d;
@@ -13,9 +13,10 @@ public class NPC : MonoBehaviour, INPC
   public Routine routines;
   [SerializeField]
   public SpriteRenderer EmoteSlot;
-  protected ElevatorManager elevatorManager;
-
   public HashSet<NPC> friendSet;
+  public GameObject itemToCreate;
+
+  protected ElevatorManager elevatorManager;
   public FacingDirection direction = FacingDirection.RIGHT;
 
   protected void Awake()
@@ -23,8 +24,23 @@ public class NPC : MonoBehaviour, INPC
     rb2d = GetComponent<Rigidbody2D>();
     routines = GetComponent<Routine>();
     elevatorManager = GameObject.FindGameObjectWithTag("Elevator Manager").GetComponent<ElevatorManager>();
-    EmoteSlot.enabled = false;
     friendSet = new HashSet<NPC>();
+    SetEmoteSlot();
+
+  }
+
+  protected void SetEmoteSlot()
+  {
+    if (EmoteSlot == null)
+    {
+      foreach (SpriteRenderer sr in GetComponentsInChildren<SpriteRenderer>())
+      {
+        if (sr.tag == "Emote Tag")
+        {
+          EmoteSlot = sr;
+        }
+      }
+    }
   }
 
   public void SetVelocity(Vector2 vel)
@@ -50,10 +66,15 @@ public class NPC : MonoBehaviour, INPC
   public void SetEmote(Sprite new_Sprite, bool setVisible = false)
   {
     EmoteSlot.sprite = new_Sprite;
-    if (setVisible) 
+    if (setVisible)
     {
       EmoteSlot.enabled = true;
     }
+  }
+
+  protected void StartRoutine()
+  {
+    routines.StartRoutine();
   }
 
   public void SetEmoteVisibility(bool i_visible)

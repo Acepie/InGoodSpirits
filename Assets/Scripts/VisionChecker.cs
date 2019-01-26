@@ -4,73 +4,73 @@ using UnityEngine;
 
 public class VisionChecker : MonoBehaviour
 {
-    [SerializeField]
-    private BoxCollider2D myCol;
-    [SerializeField]
-    private Sprite alerted_sprite;
-    [SerializeField]
-    private Sprite suspicious_sprite;
-    [SerializeField]
-    private NPC parent_Script;
-    [SerializeField]
-    private Sprite happyFace;
+  [SerializeField]
+  private BoxCollider2D myCol;
+  [SerializeField]
+  private Sprite alerted_sprite;
+  [SerializeField]
+  private Sprite suspicious_sprite;
+  [SerializeField]
+  protected NPC parent_Script;
+  [SerializeField]
+  private Sprite happyFace;
 
-    void Awake()
+  void Awake()
+  {
+    parent_Script = GetComponentInParent<NPC>();
+  }
+
+  //Checks for player specific detection.  set to true if you want the npc to detect 
+  private bool is_playerDetectable = true;
+
+  void FixedUpdate()
+  {
+    //We're facing Right/East and our local position is < 
+    if ((parent_Script.direction == NPC.FacingDirection.RIGHT && transform.localPosition.x < 0)
+        || (parent_Script.direction == NPC.FacingDirection.LEFT && transform.localPosition.x > 0))
     {
-        parent_Script = GetComponentInParent<NPC>();
+      transform.localPosition = new Vector3(transform.localPosition.x * -1, transform.localPosition.y, 0);
     }
+  }
 
-    //Checks for player specific detection.  set to true if you want the npc to detect 
-    private bool is_playerDetectable = true;
-
-    void FixedUpdate()
+  void OnTriggerStay2D(Collider2D col)
+  {
+    if (col.tag.Equals("Player"))
     {
-        //We're facing Right/East and our local position is < 
-        if ((parent_Script.direction == NPC.FacingDirection.RIGHT && transform.localPosition.x < 0)
-            || (parent_Script.direction == NPC.FacingDirection.LEFT && transform.localPosition.x > 0))
+      Player player = col.gameObject.GetComponent<Player>();
+
+      if (is_playerDetectable && player.isCarryingItem)
+      {
+        float x_dist = col.gameObject.transform.position.x - gameObject.transform.position.x;
+        if (x_dist > 0)
         {
-            transform.localPosition = new Vector3(transform.localPosition.x * -1, transform.localPosition.y, 0);
+          parent_Script.SetEmote(suspicious_sprite, true);
         }
-    }
-
-    void OnTriggerStay2D(Collider2D col)
-    {
-       if (col.tag.Equals("Player"))  
-       {
-        Player player = col.gameObject.GetComponent<Player>();
-
-        if (is_playerDetectable && !player.isDiscoverable)
+        else
         {
-            float x_dist = col.gameObject.transform.position.x - gameObject.transform.position.x;
-            if (x_dist > 0 )
-            {
-                parent_Script.SetEmote(suspicious_sprite, true);
-            }
-            else 
-            {
-                parent_Script.SetEmote(alerted_sprite, true);
-            }
+          parent_Script.SetEmote(alerted_sprite, true);
         }
-       }
-       else  if (col.tag.Equals("NPC"))
-       {
-           //We're checking if we're friendly
-           NPC otherNPC = col.gameObject.transform.parent.gameObject.GetComponent<NPC>();
-
-           if (parent_Script.AreWeFriends(otherNPC))
-           {
-                parent_Script.SetEmote(happyFace, true);
-           }
-       }
+      }
     }
-
-    public void SetPlayerDetectable(bool i_detectable)
+    else if (col.tag.Equals("NPC"))
     {
-        is_playerDetectable = i_detectable;
-    }
+      //We're checking if we're friendly
+      NPC otherNPC = col.gameObject.transform.parent.gameObject.GetComponent<NPC>();
 
-    void OnTriggerExit2D(Collider2D col)
-    {
-        parent_Script.SetEmoteVisibility(false);
+      if (parent_Script.AreWeFriends(otherNPC))
+      {
+        parent_Script.SetEmote(happyFace, true);
+      }
     }
+  }
+
+  public void SetPlayerDetectable(bool i_detectable)
+  {
+    is_playerDetectable = i_detectable;
+  }
+
+  void OnTriggerExit2D(Collider2D col)
+  {
+    parent_Script.SetEmoteVisibility(false);
+  }
 }

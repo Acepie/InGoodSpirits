@@ -20,7 +20,7 @@ public abstract class ChangeRoutine : IAction
       {
         npc.routines.AddAction(action);
       }
-      npc.routines.Start();
+      npc.routines.StartRoutine();
     }
 
     yield return null;
