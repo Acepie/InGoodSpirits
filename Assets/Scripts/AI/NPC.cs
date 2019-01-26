@@ -4,18 +4,18 @@ using UnityEngine;
 
 public class NPC : MonoBehaviour, INPC
 {
-    public SpriteRenderer EmoteSlot;
-    public HashSet<NPC> friendSet;
-    public Routine routines;
-    public GameObject itemToCreate;
-    public float speed;
+  public SpriteRenderer EmoteSlot;
+  public HashSet<NPC> friendSet;
+  public Routine routines;
+  public GameObject itemToCreate;
+  public float speed;
 
-    protected ElevatorManager elevatorManager;
+  protected ElevatorManager elevatorManager;
 
-    private Rigidbody2D rb2d;
-    private IEnumerator coroutine;
+  private Rigidbody2D rb2d;
+  private IEnumerator coroutine;
 
-    protected void Awake()
+  protected void Awake()
   {
     rb2d = GetComponent<Rigidbody2D>();
     routines = GetComponent<Routine>();
@@ -24,20 +24,20 @@ public class NPC : MonoBehaviour, INPC
     SetEmoteSlot();
 
   }
-    
-    protected void SetEmoteSlot()
+
+  protected void SetEmoteSlot()
+  {
+    if (EmoteSlot == null)
     {
-        if (EmoteSlot == null)
+      foreach (SpriteRenderer sr in GetComponentsInChildren<SpriteRenderer>())
+      {
+        if (sr.tag == "Emote Tag")
         {
-            foreach (SpriteRenderer sr in GetComponentsInChildren<SpriteRenderer>())
-            {
-                if (sr.tag == "Emote Slot")
-                {
-                    EmoteSlot = sr;
-                }
-            }
+          EmoteSlot = sr;
         }
+      }
     }
+  }
 
   public void SetVelocity(Vector2 vel)
   {
@@ -59,20 +59,20 @@ public class NPC : MonoBehaviour, INPC
     transform.position = v;
   }
 
-    public void SetEmote(Sprite new_Sprite, bool setVisible = false)
+  public void SetEmote(Sprite new_Sprite, bool setVisible = false)
+  {
+    EmoteSlot.sprite = new_Sprite;
+    if (setVisible)
     {
-        EmoteSlot.sprite = new_Sprite;
-        if (setVisible)
-        {
-            EmoteSlot.enabled = true;
-        }
+      EmoteSlot.enabled = true;
     }
+  }
 
-    protected void StartRoutine()
-    {
-        routines.StartRoutine();
-    }
-  
+  protected void StartRoutine()
+  {
+    routines.StartRoutine();
+  }
+
   public void SetEmoteVisibility(bool i_visible)
   {
     EmoteSlot.enabled = i_visible;
