@@ -4,13 +4,16 @@ using UnityEngine;
 
 public class NPC : MonoBehaviour, INPC
 {
-
   public float speed;
-  Rigidbody2D rb2d;
-  IEnumerator coroutine;
+  private Rigidbody2D rb2d;
+  private IEnumerator coroutine;
   public Routine routines;
+
   [SerializeField]
   public SpriteRenderer EmoteSlot;
+
+  public HashSet<NPC> friendSet;
+
   protected ElevatorManager elevatorManager;
 
   public HashSet<NPC> friendSet;
@@ -19,8 +22,8 @@ public class NPC : MonoBehaviour, INPC
   {
     rb2d = GetComponent<Rigidbody2D>();
     routines = GetComponent<Routine>();
-    elevatorManager = GameObject.FindGameObjectWithTag("Elevator Manager").GetComponent<ElevatorManager>();
     EmoteSlot.enabled = false;
+    elevatorManager = GameObject.FindGameObjectWithTag("Elevator Manager").GetComponent<ElevatorManager>();
     friendSet = new HashSet<NPC>();
   }
 
@@ -47,7 +50,7 @@ public class NPC : MonoBehaviour, INPC
   public void SetEmote(Sprite new_Sprite, bool setVisible = false)
   {
     EmoteSlot.sprite = new_Sprite;
-    if (setVisible) 
+    if (setVisible)
     {
       EmoteSlot.enabled = true;
     }

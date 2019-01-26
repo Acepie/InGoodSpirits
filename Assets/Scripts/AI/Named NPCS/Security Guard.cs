@@ -1,17 +1,13 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿public class SecurityGuard : NPC
+{
+    private int numWorking;
 
-public class SecurityGuard : NPC {
-
-    int numWorking;
-    new void Awake()
+    private new void Awake()
     {
         base.Awake();
     }
 
-    void Loop()
+    private void Loop()
     {
-        
     }
 }
