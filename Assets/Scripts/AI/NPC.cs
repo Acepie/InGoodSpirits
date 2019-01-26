@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class NPC : MonoBehaviour, INPC
@@ -9,38 +10,42 @@ public class NPC : MonoBehaviour, INPC
     public Routine routines;
     public GameObject itemToCreate;
 
-    [SerializeField]
-    public SpriteRenderer EmoteSlot;
 
-    protected ElevatorManager elevatorManager;
+  [SerializeField]
+  public SpriteRenderer EmoteSlot;
 
-    protected void Awake()
-    {
-        rb2d = GetComponent<Rigidbody2D>();
-        routines = GetComponent<Routine>();
-        elevatorManager = GameObject.FindGameObjectWithTag("Elevator Manager").GetComponent<ElevatorManager>();
-        EmoteSlot.enabled = false;
-    }
+  public HashSet<NPC> friendSet;
 
-    public void SetVelocity(Vector2 vel)
-    {
-        rb2d.velocity = vel;
-    }
+  protected ElevatorManager elevatorManager;
 
-    public void AddAction(IAction a)
-    {
-        routines.AddAction(a);
-    }
+  protected void Awake()
+  {
+    rb2d = GetComponent<Rigidbody2D>();
+    routines = GetComponent<Routine>();
+    EmoteSlot.enabled = false;
+    elevatorManager = GameObject.FindGameObjectWithTag("Elevator Manager").GetComponent<ElevatorManager>();
+    friendSet = new HashSet<NPC>();
+  }
 
-    public Vector2 GetPos()
-    {
-        return transform.position;
-    }
+  public void SetVelocity(Vector2 vel)
+  {
+    rb2d.velocity = vel;
+  }
 
-    public void SetPos(Vector2 v)
-    {
-        transform.position = v;
-    }
+  public void AddAction(IAction a)
+  {
+    routines.AddAction(a);
+  }
+
+  public Vector2 GetPos()
+  {
+    return transform.position;
+  }
+
+  public void SetPos(Vector2 v)
+  {
+    transform.position = v;
+  }
 
     public void SetEmote(Sprite new_Sprite, bool setVisible = false)
     {
@@ -51,13 +56,25 @@ public class NPC : MonoBehaviour, INPC
         }
     }
 
-    public void SetEmoteVisibility(bool i_visible)
-    {
-        EmoteSlot.enabled = i_visible;
-    }
-
     protected void StartRoutine()
     {
         routines.StartRoutine();
     }
+  
+  public void SetEmoteVisibility(bool i_visible)
+  {
+    EmoteSlot.enabled = i_visible;
+  }
+
+  /**Adds the given NPC to our friends list. Note that we add them for BOTH people*/
+  public void AddFriends(NPC newFriend)
+  {
+    friendSet.Add(newFriend);
+    newFriend.friendSet.Add(this);
+  }
+
+  public bool AreWeFriends(NPC npc)
+  {
+    return friendSet.Contains(npc);
+  }
 }
