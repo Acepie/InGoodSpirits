@@ -20,7 +20,6 @@ public class MoveTo : IAction
     //manage our NPC's facing direction
     bool X_dist =  destination.x > n.gameObject.transform.position.x;
     n.direction = X_dist? NPC.FacingDirection.RIGHT : NPC.FacingDirection.LEFT;
-    Debug.Log(n.direction);
     
     return Move(destination);
   }

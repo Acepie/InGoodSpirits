@@ -25,8 +25,6 @@ public class VisionChecker : MonoBehaviour
 
     void FixedUpdate()
     {
-        Debug.Log(transform.localPosition.x);
-        Debug.Log(parent_Script.direction);
         //We're facing Right/East and our local position is < 
         if ((parent_Script.direction == NPC.FacingDirection.RIGHT && transform.localPosition.x < 0)
             || (parent_Script.direction == NPC.FacingDirection.LEFT && transform.localPosition.x > 0))
