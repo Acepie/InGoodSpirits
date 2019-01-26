@@ -5,6 +5,6 @@ using UnityEngine;
 
 public interface IInteractable {
 
-    void OnInteract(Player p);
+    void OnInteract(INPC n);
 
 }

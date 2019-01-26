@@ -23,6 +23,6 @@ public class TimeManager : MonoBehaviour
     /**Converts the time in seconds from unity to our game time, in hours.   */
     public float timeToGameTime()
     { 
-        return Time.time/TimeManager.SECONDS_PER_HOUR;
+        return Time.time/SECONDS_PER_HOUR;
     }
 }

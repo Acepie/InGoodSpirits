@@ -10,7 +10,6 @@ public class MoveTo : IAction
     IEnumerator moveCoroutine;
     NPC n;
     
-
     public MoveTo(Vector3 d, NPC n_)
     {
         destination = d;
@@ -42,10 +41,5 @@ public class MoveTo : IAction
         n.SetVelocity(Vector2.zero);
         isMoving = false;
         yield return null;
-    }
-
-    public bool IsPerformingAction()
-    {
-        return isMoving;
     }
 }

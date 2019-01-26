@@ -30,4 +30,18 @@ public class NPC : MonoBehaviour, INPC {
         rb2d.velocity = vel;
     }
 
+    public void AddAction(IAction a)
+    {
+        routines.AddAction(a);
+    }
+
+    public Vector3 GetPos()
+    {
+        return transform.position;
+    }
+
+    public void SetPos(Vector3 v)
+    {
+        transform.position = v;
+    }
 }

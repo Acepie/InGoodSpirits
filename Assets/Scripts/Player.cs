@@ -1,11 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class Player : MonoBehaviour {
+//TODO: Remove INPC after testing or make dummy
+/// <summary>
+/// Represents player class. Should remove INPC. Currently used for testing
+/// </summary>
+public class Player : MonoBehaviour, INPC {
 
     public float speed = 5f;
     Rigidbody2D rb2d;
+    IInteractable interactableHoveringOver;
 
     private void Awake()
     {
@@ -17,6 +21,11 @@ public class Player : MonoBehaviour {
     {
         OnHover();
         Move();
+        if(interactableHoveringOver != null && Input.GetKeyDown(KeyCode.Space))
+        {
+            Debug.Log("Space");
+            interactableHoveringOver.OnInteract(this);
+        }
     }
 
     private void Move()
@@ -46,20 +55,20 @@ public class Player : MonoBehaviour {
 
     private void OnHover()
     {
-        ///Updates Focus of current object, from building, to tower, to enemy
-            GameObject go = GameObjectBelowMouse();
-            if (go != null)
+    ///Updates Focus of current object, from building, to tower, to enemy
+        GameObject go = GameObjectBelowMouse();
+        interactableHoveringOver = null;
+        if (go != null)
+        {
+            MonoBehaviour[] list = go.GetComponents<MonoBehaviour>();
+            foreach (MonoBehaviour mb in list)
             {
-                MonoBehaviour[] list = go.GetComponents<MonoBehaviour>();
-                foreach (MonoBehaviour mb in list)
+                if (mb is IInteractable)
                 {
-                    if (mb is IInteractable)
-                    {
-                        IInteractable interactable = (IInteractable)(mb);
-                        interactable.OnInteract(this);
-                    }
+                    interactableHoveringOver = (IInteractable)mb;
                 }
             }
+        }
     }
 
     private GameObject GameObjectBelowMouse()
@@ -75,4 +84,23 @@ public class Player : MonoBehaviour {
 
         return clickedObject;
     }
+
+    public void SetVelocity(Vector3 vel)
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public void AddAction(IAction a)
+    {
+        //TODO: Remove code. Only used for testing elevator action(s)
+        IEnumerator actionCoroutine;
+        actionCoroutine = a.DoAction();
+        StartCoroutine(actionCoroutine);
+    }
+
+    public void SetPos(Vector3 v)
+    {
+        transform.position = v;
+    }
+
 }
