@@ -10,12 +10,7 @@ public class Florist : NPC
   {
     base.Awake();
     elevatorManager = GameObject.FindGameObjectWithTag("Elevator Manager").GetComponent<ElevatorManager>();
-    Loop();
-    Loop();
-  }
 
-  void Loop()
-  {
     routines.AddAction(new Wait(.1f));
     routines.AddAction(new MoveTo(elevatorManager.GetDestinationPosition(Floor.Second), this));
     routines.AddAction(new UseElevator(this, Floor.Ground));
@@ -24,5 +19,13 @@ public class Florist : NPC
     routines.AddAction(new MoveTo(elevatorManager.GetDestinationPosition(Floor.Ground), this));
     routines.AddAction(new UseElevator(this, Floor.Second));
     routines.AddAction(new MoveTo(new Vector2(-9, elevatorManager.GetDestinationPosition(Floor.Second).y), this));
+  }
+
+  void Update()
+  {
+    if (!routines.isActioning)
+    {
+      routines.Start();
+    }
   }
 }

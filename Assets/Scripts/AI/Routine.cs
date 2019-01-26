@@ -9,6 +9,7 @@ public class Routine : MonoBehaviour
   [SerializeField] Queue<IAction> actions = new Queue<IAction>();
   IEnumerator actionCoroutine;
   IEnumerator routineCoroutine;
+  public bool isActioning = false;
 
   public void AddAction(IAction a)
   {
@@ -20,17 +21,20 @@ public class Routine : MonoBehaviour
     return actions;
   }
 
-  private void Start()
+  public void Start()
   {
-    StartCoroutine(DoActions());
+    routineCoroutine = DoActions();
+    StartCoroutine(routineCoroutine);
   }
 
   public IEnumerator DoActions()
   {
+    isActioning = true;
     foreach (IAction a in actions)
     {
       actionCoroutine = a.DoAction();
       yield return StartCoroutine(actionCoroutine);
     }
+    isActioning = false;
   }
 }
