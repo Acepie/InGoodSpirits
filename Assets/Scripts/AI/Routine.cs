@@ -24,21 +24,16 @@ public class Routine : MonoBehaviour
     {
         if(actions.Count > 0)
         {
-            routineCoroutine = DoActions();
-            StartCoroutine(routineCoroutine);
-        } else
-        {
-            StopCoroutine(routineCoroutine);
+            DoActions();
         }
     }
 
-    public IEnumerator DoActions()
+    public void DoActions()
     {
         foreach (IAction a in actions)
         {
             actionCoroutine = a.DoAction();
-            yield return StartCoroutine(actionCoroutine);
-            StopCoroutine(actionCoroutine);
+            StartCoroutine(actionCoroutine);
         }
         actions.Clear();
     }

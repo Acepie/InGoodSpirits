@@ -34,7 +34,6 @@ public class MoveTo : IAction
         float dist = Vector2.Distance(n.transform.position, destination);
         while (dist > 0.1)
         {
-            Debug.Log(dist);
             n.SetVelocity(dir.normalized * n.speed);
             dist = Vector2.Distance(n.transform.position, destination);
             yield return null;
