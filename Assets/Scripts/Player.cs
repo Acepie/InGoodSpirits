@@ -164,7 +164,7 @@ public class Player : MonoBehaviour
         return clickedObject;
     }
 
-    public void PickUp(AbstractPickupInteractable api)
+    public void PickUp(PickupInteractable api)
     {
         if (!isCarryingItem)
         {
@@ -181,7 +181,7 @@ public class Player : MonoBehaviour
 
     private void DropItem()
     {
-        pickedUpItem.GetComponent<AbstractPickupInteractable>().Drop(transform.position);
+        pickedUpItem.GetComponent<PickupInteractable>().Drop(transform.position);
         isCarryingItem = false;
     }
 }

@@ -25,7 +25,7 @@ public class Florist : NPC
     {
         if (!routines.isActioning)
         {
-            routines.Start();
+            StartRoutine();
         }
     }
 }

@@ -7,6 +7,7 @@ public class NPC : MonoBehaviour, INPC
     private Rigidbody2D rb2d;
     private IEnumerator coroutine;
     public Routine routines;
+    public GameObject itemToCreate;
 
     [SerializeField]
     public SpriteRenderer EmoteSlot;
@@ -53,5 +54,10 @@ public class NPC : MonoBehaviour, INPC
     public void SetEmoteVisibility(bool i_visible)
     {
         EmoteSlot.enabled = i_visible;
+    }
+
+    protected void StartRoutine()
+    {
+        routines.StartRoutine();
     }
 }
