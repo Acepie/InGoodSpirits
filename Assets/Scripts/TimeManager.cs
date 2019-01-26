@@ -17,14 +17,12 @@ public class TimeManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-    
-     CurrentHour =  (int) Mathf.Floor(timeToGameTime(Time.time));
- 
+     CurrentHour =  (int) Mathf.Floor(timeToGameTime());
     }
 
     /**Converts the time in seconds from unity to our game time, in hours.   */
-    public float timeToGameTime(float i_currTime)
+    public float timeToGameTime()
     { 
-        return i_currTime/TimeManager.SECONDS_PER_HOUR;
+        return Time.time/TimeManager.SECONDS_PER_HOUR;
     }
 }
