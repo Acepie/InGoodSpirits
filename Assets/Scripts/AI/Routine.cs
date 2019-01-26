@@ -6,35 +6,31 @@ using UnityEngine;
 public class Routine : MonoBehaviour
 {
 
-    [SerializeField] Queue<IAction> actions = new Queue<IAction>();
-    IEnumerator actionCoroutine;
-    IEnumerator routineCoroutine;
+  [SerializeField] Queue<IAction> actions = new Queue<IAction>();
+  IEnumerator actionCoroutine;
+  IEnumerator routineCoroutine;
 
-    public void AddAction(IAction a)
-    {
-        actions.Enqueue(a);
-    }
+  public void AddAction(IAction a)
+  {
+    actions.Enqueue(a);
+  }
 
-    public Queue<IAction> GetActions()
-    {
-        return actions;
-    }
+  public Queue<IAction> GetActions()
+  {
+    return actions;
+  }
 
-    private void Update()
-    {
-        if(actions.Count > 0)
-        {
-            DoActions();
-        }
-    }
+  private void Start()
+  {
+    StartCoroutine(DoActions());
+  }
 
-    public void DoActions()
+  public IEnumerator DoActions()
+  {
+    foreach (IAction a in actions)
     {
-        foreach (IAction a in actions)
-        {
-            actionCoroutine = a.DoAction();
-            StartCoroutine(actionCoroutine);
-        }
-        actions.Clear();
+      actionCoroutine = a.DoAction();
+      yield return StartCoroutine(actionCoroutine);
     }
+  }
 }

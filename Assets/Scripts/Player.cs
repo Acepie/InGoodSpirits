@@ -2,77 +2,83 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour {
+public class Player : MonoBehaviour
+{
 
-    public float speed = 5f;
-    Rigidbody2D rb2d;
+  public float speed = 5f;
+  Rigidbody2D rb2d;
+  PlayerInteractable interactableHoveringOver;
 
-    private void Awake()
+  private void Awake()
+  {
+    rb2d = GetComponent<Rigidbody2D>();
+  }
+
+  // Update is called once per frame
+  private void Update()
+  {
+    OnHover();
+    Move();
+    if (interactableHoveringOver != null && Input.GetKeyDown(KeyCode.Space))
     {
-        rb2d = GetComponent<Rigidbody2D>();
+      interactableHoveringOver.OnInteract(this);
+    }
+  }
+
+  private void Move()
+  {
+    Vector2 velocity = new Vector2(0, 0);
+    if (Input.GetKey("left") || Input.GetKey("a"))
+    {
+      velocity += new Vector2(-speed, 0);
     }
 
-    // Update is called once per frame
-    private void Update()
+    if (Input.GetKey("right") || Input.GetKey("d"))
     {
-        OnHover();
-        Move();
+      velocity += new Vector2(speed, 0);
     }
 
-    private void Move()
+    if (Input.GetKey("up") || Input.GetKey("w"))
     {
-        Vector2 velocity = new Vector2(0, 0);
-        if (Input.GetKey("left") || Input.GetKey("a"))
-        {
-            velocity += new Vector2(-speed, 0);
-        }
-
-        if(Input.GetKey("right") || Input.GetKey("d"))
-        {
-            velocity += new Vector2(speed, 0);
-        }
-
-        if(Input.GetKey("up") || Input.GetKey("w"))
-        {
-            velocity += new Vector2(0, speed);
-        }
-
-        if(Input.GetKey("down") || Input.GetKey("s"))
-        {
-            velocity += new Vector2(0, -speed);
-        }
-        rb2d.velocity = velocity;
+      velocity += new Vector2(0, speed);
     }
 
-    private void OnHover()
+    if (Input.GetKey("down") || Input.GetKey("s"))
     {
-        ///Updates Focus of current object, from building, to tower, to enemy
-            GameObject go = GameObjectBelowMouse();
-            if (go != null)
-            {
-                MonoBehaviour[] list = go.GetComponents<MonoBehaviour>();
-                foreach (MonoBehaviour mb in list)
-                {
-                    if (mb is IInteractable)
-                    {
-                        IInteractable interactable = (IInteractable)(mb);
-                        interactable.OnInteract(this);
-                    }
-                }
-            }
+      velocity += new Vector2(0, -speed);
     }
+    rb2d.velocity = velocity;
+  }
 
-    private GameObject GameObjectBelowMouse()
+  private void OnHover()
+  {
+    ///Updates Focus of current object, from building, to tower, to enemy
+    GameObject go = GameObjectBelowMouse();
+    interactableHoveringOver = null;
+    if (go != null)
     {
-        GameObject clickedObject = null;
-
-        Camera cam = Camera.main;
-        RaycastHit2D hit = Physics2D.Raycast(cam.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
-        if (hit.collider != null)
+      MonoBehaviour[] list = go.GetComponents<MonoBehaviour>();
+      foreach (MonoBehaviour mb in list)
+      {
+        if (mb is PlayerInteractable)
         {
-            clickedObject = hit.collider.gameObject;
+          interactableHoveringOver = (PlayerInteractable)mb;
         }
-
-        return clickedObject;
+      }
     }
+  }
+
+  private GameObject GameObjectBelowMouse()
+  {
+    GameObject clickedObject = null;
+
+    Camera cam = Camera.main;
+    RaycastHit2D hit = Physics2D.Raycast(cam.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
+    if (hit.collider != null)
+    {
+      clickedObject = hit.collider.gameObject;
+    }
+
+    return clickedObject;
+  }
 }

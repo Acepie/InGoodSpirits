@@ -6,5 +6,4 @@ using UnityEngine;
 public interface IAction {
 
     IEnumerator DoAction();
-    bool IsPerformingAction();
 }
