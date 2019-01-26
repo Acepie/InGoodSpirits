@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   routines: {fileID: 0}
+  EmoteSlot: {fileID: 214325942157772847}
 --- !u!1001 &4652053832668536933
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -98,6 +99,12 @@ GameObject:
 --- !u!61 &5370035820615678580 stripped
 BoxCollider2D:
   m_CorrespondingSourceObject: {fileID: 723207555472972305, guid: 2455a83bece49c648b6102f5e23d0a65,
+    type: 3}
+  m_PrefabInstance: {fileID: 4652053832668536933}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &214325942157772847 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 4789043975212558410, guid: 2455a83bece49c648b6102f5e23d0a65,
     type: 3}
   m_PrefabInstance: {fileID: 4652053832668536933}
   m_PrefabAsset: {fileID: 0}

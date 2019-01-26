@@ -43,9 +43,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: NPC
+    uniqueID: 848025875
+    locked: 0
   - name: Player
     uniqueID: 1178457879
-    locked: 0
-  - name: New Layer
-    uniqueID: 848025875
     locked: 0

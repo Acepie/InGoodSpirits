@@ -11,6 +11,7 @@ public class NPC : MonoBehaviour, INPC
   public Routine routines;
   [SerializeField]
   public SpriteRenderer EmoteSlot;
+  protected ElevatorManager elevatorManager;
 
   public HashSet<NPC> friendSet;
 
@@ -18,6 +19,7 @@ public class NPC : MonoBehaviour, INPC
   {
     rb2d = GetComponent<Rigidbody2D>();
     routines = GetComponent<Routine>();
+    elevatorManager = GameObject.FindGameObjectWithTag("Elevator Manager").GetComponent<ElevatorManager>();
     EmoteSlot.enabled = false;
     friendSet = new HashSet<NPC>();
   }
