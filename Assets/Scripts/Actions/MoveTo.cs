@@ -15,19 +15,18 @@ public class MoveTo : IAction
     n = n_;
   }
 
-  public void SetDestination(Vector2 dest)
-  {
-    destination = dest;
-  }
-
   IEnumerator IAction.DoAction()
   {
+    //manage our NPC's facing direction
+    bool X_dist =  destination.x > n.gameObject.transform.position.x;
+    n.direction = X_dist? NPC.FacingDirection.RIGHT : NPC.FacingDirection.LEFT;
+    Debug.Log(n.direction);
+    
     return Move(destination);
   }
 
   private IEnumerator Move(Vector2 destination)
   {
-
     float dist = Vector2.Distance(n.GetPos(), destination);
     while (dist > 0.1)
     {

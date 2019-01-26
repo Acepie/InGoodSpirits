@@ -15,8 +15,25 @@ public class VisionChecker : MonoBehaviour
     [SerializeField]
     private Sprite happyFace;
 
+    void Awake()
+    {
+        parent_Script = GetComponentInParent<NPC>();
+    }
+
     //Checks for player specific detection.  set to true if you want the npc to detect 
     private bool is_playerDetectable = true;
+
+    void FixedUpdate()
+    {
+        Debug.Log(transform.localPosition.x);
+        Debug.Log(parent_Script.direction);
+        //We're facing Right/East and our local position is < 
+        if ((parent_Script.direction == NPC.FacingDirection.RIGHT && transform.localPosition.x < 0)
+            || (parent_Script.direction == NPC.FacingDirection.LEFT && transform.localPosition.x > 0))
+        {
+            transform.localPosition = new Vector3(transform.localPosition.x * -1, transform.localPosition.y, 0);
+        }
+    }
 
     void OnTriggerStay2D(Collider2D col)
     {

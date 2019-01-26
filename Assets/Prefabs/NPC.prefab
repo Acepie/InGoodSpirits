@@ -73,7 +73,7 @@ MonoBehaviour:
   myCol: {fileID: 723207555472972305}
   alerted_sprite: {fileID: 21300000, guid: 6a2196f9bb7140946b261861768c238a, type: 3}
   suspicious_sprite: {fileID: 21300000, guid: 4b12b396e7ecb3c42a9c9a3f6b8ee6f3, type: 3}
-  parent_Script: {fileID: 723207556800096393}
+  parent_Script: {fileID: 0}
   happyFace: {fileID: 21300000, guid: 05ff9c72735ab0b4284b2be71902e212, type: 3}
 --- !u!1 &723207556800096390
 GameObject:
@@ -195,6 +195,7 @@ MonoBehaviour:
   speed: 5
   routines: {fileID: 0}
   EmoteSlot: {fileID: 4789043975212558410}
+  direction: 0
 --- !u!114 &723207556800096392
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -5,6 +5,8 @@ using UnityEngine;
 public class NPC : MonoBehaviour, INPC
 {
 
+  public enum FacingDirection {RIGHT, LEFT};
+
   public float speed;
   Rigidbody2D rb2d;
   IEnumerator coroutine;
@@ -14,6 +16,7 @@ public class NPC : MonoBehaviour, INPC
   protected ElevatorManager elevatorManager;
 
   public HashSet<NPC> friendSet;
+  public FacingDirection direction = FacingDirection.RIGHT;
 
   protected void Awake()
   {
