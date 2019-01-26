@@ -24,6 +24,7 @@ public class UseElevator : IAction
 
   public IEnumerator DoAction()
   {
+    yield return new WaitForSeconds(TimeManager.gameTimeToTime(.05f));
     n.SetPos(elevatorManager.GetDestinationPosition(destFloor));
     yield return null;
   }

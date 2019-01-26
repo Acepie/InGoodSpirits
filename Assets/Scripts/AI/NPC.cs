@@ -9,11 +9,9 @@ public class NPC : MonoBehaviour, INPC
   Rigidbody2D rb2d;
   IEnumerator coroutine;
   public Routine routines;
-
   [SerializeField]
   public SpriteRenderer EmoteSlot;
   protected ElevatorManager elevatorManager;
-
 
   protected void Awake()
   {
@@ -41,5 +39,19 @@ public class NPC : MonoBehaviour, INPC
   public void SetPos(Vector2 v)
   {
     transform.position = v;
+  }
+
+  public void SetEmote(Sprite new_Sprite, bool setVisible = false)
+  {
+    EmoteSlot.sprite = new_Sprite;
+    if (setVisible) 
+    {
+      EmoteSlot.enabled = true;
+    }
+  }
+
+  public void SetEmoteVisibility(bool i_visible)
+  {
+    EmoteSlot.enabled = i_visible;
   }
 }

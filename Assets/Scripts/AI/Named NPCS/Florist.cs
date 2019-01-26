@@ -2,14 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Florist : NPC {
-
-
+public class Florist : NPC
+{
 
   new protected void Awake()
   {
     base.Awake();
-        
     // List<IAction> testActions = new List<IAction>();
     // testActions.Add(new MoveTo(new Vector2(5, elevatorManager.GetDestinationPosition(Floor.Ground).y), this));
     // testActions.Add(new MoveTo(new Vector2(15, elevatorManager.GetDestinationPosition(Floor.Ground).y), this));
