@@ -21,6 +21,16 @@ public class Routine : MonoBehaviour
     return actions;
   }
 
+  public void ClearActions()
+  {
+    actions.Clear();
+  }
+
+  public void StopActions()
+  {
+    StopCoroutine(routineCoroutine);
+  }
+
   public void Start()
   {
     routineCoroutine = DoActions();
