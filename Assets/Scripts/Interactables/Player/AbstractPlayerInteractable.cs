@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class AbstractPickupInteractable : MonoBehaviour, PlayerInteractable
+public class PickupInteractable : MonoBehaviour, PlayerInteractable
 {
     public virtual void OnInteract(Player p)
     {
