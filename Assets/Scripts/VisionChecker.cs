@@ -40,11 +40,11 @@ public class VisionChecker : MonoBehaviour
        else  if (col.tag.Equals("NPC"))
        {
            //We're checking if we're friendly
-           NPC otherNPC = col.gameObject.GetComponent<NPC>();
+           NPC otherNPC = col.gameObject.transform.parent.gameObject.GetComponent<NPC>();
 
            if (parent_Script.AreWeFriends(otherNPC))
            {
-               parent_Script.SetEmote(happyFace);
+                parent_Script.SetEmote(happyFace, true);
            }
        }
     }
