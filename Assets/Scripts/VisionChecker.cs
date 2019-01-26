@@ -23,20 +23,17 @@ public class VisionChecker : MonoBehaviour
          float x_dist = col.gameObject.transform.position.x - gameObject.transform.position.x;
          if (x_dist > 0 )
          {
-             parent_Script.SetEmote(suspicious_sprite, true);
-             Debug.Log("you be far");
+            parent_Script.SetEmote(suspicious_sprite, true);
          }
          else 
          {
-             parent_Script.SetEmote(alerted_sprite, true);
-             Debug.Log("They be seeing you");
+            parent_Script.SetEmote(alerted_sprite, true);
          }
        }
     }
 
     void OnTriggerExit2D(Collider2D col)
     {
-        Debug.Log("exit");
         parent_Script.SetEmoteVisibility(false);
     }
 }
