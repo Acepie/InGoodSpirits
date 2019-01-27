@@ -42,19 +42,27 @@ public class SecurityGuard : NPC
 
     public override void GetNextRoutine()
     {
-        Debug.Log("next routine for" + this.name);
-        onAlert = !onAlert;
-        if (onAlert)
+        Debug.Log("next routine for " + this.name);
+        if (swapNextRoutine)
         {
-            routineToDo.ClearActions();
-            routineToDo.AddAction(alertACtion);
-            visionChecker.GetComponent<Collider2D>().enabled = true;
+            routineToDo.SetActions(nextRoutine);
+            swapNextRoutine = false;
         }
         else
         {
-            routineToDo.ClearActions();
-            routineToDo.AddAction(notAlertAction);
-            visionChecker.GetComponent<Collider2D>().enabled = false;
-        }  
+            onAlert = !onAlert;
+            if (onAlert)
+            {
+                routineToDo.ClearActions();
+                routineToDo.AddAction(alertACtion);
+                visionChecker.GetComponent<Collider2D>().enabled = true;
+            }
+            else
+            {
+                routineToDo.ClearActions();
+                routineToDo.AddAction(notAlertAction);
+                visionChecker.GetComponent<Collider2D>().enabled = false;
+            }
+        }
     }
 }

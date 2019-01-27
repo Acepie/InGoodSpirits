@@ -15,6 +15,7 @@ public class NPC : MonoBehaviour, INPC
 {
 
   public enum FacingDirection { RIGHT, LEFT };
+    public GameObject homePosition;
     protected bool swapNextRoutine = false;
     public Floor homeFloor;
 
@@ -43,7 +44,6 @@ public class NPC : MonoBehaviour, INPC
     elevatorManager = GameObject.FindGameObjectWithTag("Elevator Manager").GetComponent<ElevatorManager>();
     friendSet = new HashSet<NPC>();
     SetEmoteSlot();
-
   }
 
   protected void SetEmoteSlot()
@@ -121,7 +121,6 @@ public class NPC : MonoBehaviour, INPC
     {
         nextRoutine = r;
         swapNextRoutine = true;
-
     }
 
     public virtual void GetNextRoutine()
@@ -136,5 +135,22 @@ public class NPC : MonoBehaviour, INPC
         {
             routineToDo.SetActions(normalRoutine);
         }
+    }
+    /// <summary>
+    /// /Return home from a specfiic floor
+    /// </summary>
+    /// <param name="f"></param>
+    /// <returns></returns>
+    public Queue<IAction> ReturnHomeRoutine(Floor f)
+    {
+        Queue<IAction> res = new Queue<IAction>();
+        if(f != homeFloor)
+        {
+            res.Enqueue(new MoveTo(elevatorManager.GetDestinationPosition(f), this));
+            res.Enqueue(new UseElevator(this, homeFloor));
+        }
+        res.Enqueue(new MoveTo(homePosition.transform.position, this));
+        res.Enqueue(new Wait(0.25f));
+        return res;
     }
 }
