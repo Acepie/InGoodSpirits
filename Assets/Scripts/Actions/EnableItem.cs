@@ -35,6 +35,7 @@ public class EnableItem : IAction
         {
             GameObject newItem = Object.Instantiate(prefabToCreate) as GameObject;
             newItem.transform.position = locationToMakeItem;
+            SoundManager.PlaySound(newItem.GetComponent<PickupInteractable>().clipToPlay);
         }
 
     yield return null;
