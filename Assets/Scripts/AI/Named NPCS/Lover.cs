@@ -10,18 +10,17 @@ public class Lover : NPC {
 
     public AudioClip source;
     public Sprite sadEmote;
-
      
     new protected void Awake()
     {
         base.Awake();
         //chill
-        routines.AddAction(new Wait(1f));
+        routines.AddAction(new Wait(.25f));
         //Go To lover's room
         routines.AddAction(new MoveTo(elevatorManager.GetDestinationPosition(Floor.First), this));
         routines.AddAction(new UseElevator(this, Floor.Second));
-        routines.AddAction(new MoveTo(GameObject.FindGameObjectWithTag("Florist Door").transform.position, this));
-        routines.AddAction(new Wait(.25f));
+        routines.AddAction(new MoveTo(GameObject.Find("Florist Door Dest").transform.position, this));
+        routines.AddAction(new Wait(.1f));
         routines.AddAction(new DoEmote(sadEmote, source, this, 3));
         
 
@@ -29,6 +28,14 @@ public class Lover : NPC {
         routines.AddAction(new MoveTo(elevatorManager.GetDestinationPosition(Floor.Second), this));
         routines.AddAction(new UseElevator(this, Floor.First));
         routines.AddAction(new MoveTo(GameObject.FindGameObjectWithTag("L_Waypoint").transform.position, this));
+    }
+
+    private void Update()
+    {
+        if (!routines.isActioning)
+        {
+            StartRoutine();
+        }
     }
 
 }

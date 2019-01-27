@@ -7,9 +7,9 @@ public class DrawGizmos : MonoBehaviour
     public Color c;
     public float radius;
 
-    private void OnDrawGizmos()
+    void OnDrawGizmos()
     {
-        Gizmos.color = c;
+        Gizmos.color = Color.blue;
         Gizmos.DrawSphere(transform.position, radius);
     }
 }
