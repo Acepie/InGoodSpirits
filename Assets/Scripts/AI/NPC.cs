@@ -33,6 +33,8 @@ public class NPC : MonoBehaviour, INPC
   public Animator anim;
     public Floor currentFloor;
 
+  public float elevatorOffset = 0f;
+
   public ElevatorManager elevatorManager;
   public FacingDirection direction = FacingDirection.RIGHT;
 
@@ -62,6 +64,19 @@ public class NPC : MonoBehaviour, INPC
 
   public void SetVelocity(Vector2 vel)
   {
+    SetAnim(vel);
+    if (vel.x < 0)
+    {
+      transform.localScale = new Vector3(-Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
+    }
+    if (vel.x > 0)
+    {
+      transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
+    }
+    rb2d.velocity = vel;
+  }
+
+  public void SetAnim(Vector2 vel){
     if (Mathf.Abs(vel.x) > 0)
     {
       if (anim != null)
@@ -84,15 +99,6 @@ public class NPC : MonoBehaviour, INPC
         Debug.Log("This character has no animator");
       }
     }
-    if (vel.x < 0)
-    {
-      transform.localScale = new Vector3(-Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
-    }
-    if (vel.x > 0)
-    {
-      transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
-    }
-    rb2d.velocity = vel;
   }
 
   public void AddAction(IAction a)

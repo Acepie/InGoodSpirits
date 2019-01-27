@@ -16,6 +16,8 @@ public class ElevatorManager : MonoBehaviour
 
     public Vector2 GetDestinationPosition(Floor f)
     {
-        return elevatorPositions[(int)f].transform.position;
+        Vector2 position = elevatorPositions[(int)f].transform.position;
+        position.y = position.y + 0.15f;
+        return position;
     }
 }
