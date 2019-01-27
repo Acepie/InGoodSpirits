@@ -5,7 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class Score : MonoBehaviour
 {
-  public static int score;
+  public static bool displaySecurity = false;
+  public static bool displayBaker = false;
+  public static bool displayFlorist = false;
+  public static bool displayLover = false;
+
+  public static int score = 0;
+
 
   void Update()
   {
@@ -18,12 +24,34 @@ public class Score : MonoBehaviour
 
   public void computeTotal()
   {
-    var baker = GameObject.Find("Baker").GetComponent<Baker>();
-    var florist = GameObject.Find("Florist").GetComponent<Florist>();
     var musician = GameObject.Find("Musician").GetComponent<Musician>();
-    var guard = GameObject.Find("Security Guard").GetComponent<SecurityGuard>();
-    var lover = GameObject.Find("Lover").GetComponent<Lover>();
-
-    score = baker.friendSet.Count + florist.friendSet.Count + musician.friendSet.Count + guard.friendSet.Count + lover.friendSet.Count;
+    score = musician.friendSet.Count;
+    foreach (NPC n in musician.friendSet)
+    {
+      switch(n.gameObject.name) 
+      {
+        case "Security Guard" :
+        {
+          Score.displaySecurity = true;
+          break;
+        } 
+        case "Lover" :
+        {
+           Score.displayLover = true;
+          break;
+        }
+        case "Florist" :
+        {
+          Score.displayFlorist = true;
+          break;
+        }
+        case "Baker" :
+        {
+          Score.displayBaker = true;
+          break;
+        }
+      }
+      
+    }
   }
 }
