@@ -54,6 +54,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Florist
       objectReference: {fileID: 0}
+    - target: {fileID: 7966555774204089379, guid: 2455a83bece49c648b6102f5e23d0a65,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: -2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7966555774204089379, guid: 2455a83bece49c648b6102f5e23d0a65,
+        type: 3}
+      propertyPath: m_Radius
+      value: 3.4421449
+      objectReference: {fileID: 0}
+    - target: {fileID: 7966555774204089379, guid: 2455a83bece49c648b6102f5e23d0a65,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 723207556800096396, guid: 2455a83bece49c648b6102f5e23d0a65,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -145,6 +160,11 @@ PrefabInstance:
       propertyPath: m_Color.b
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 723207556800096394, guid: 2455a83bece49c648b6102f5e23d0a65,
+        type: 3}
+      propertyPath: m_BodyType
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6677760606824192491, guid: 2455a83bece49c648b6102f5e23d0a65,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -165,11 +185,36 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 723207555472972305, guid: 2455a83bece49c648b6102f5e23d0a65,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: 18.792572
+      objectReference: {fileID: 0}
+    - target: {fileID: 723207555472972305, guid: 2455a83bece49c648b6102f5e23d0a65,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 39.695183
+      objectReference: {fileID: 0}
+    - target: {fileID: 723207555472972305, guid: 2455a83bece49c648b6102f5e23d0a65,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 23.468771
+      objectReference: {fileID: 0}
+    - target: {fileID: 723207555472972305, guid: 2455a83bece49c648b6102f5e23d0a65,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: -5
+      objectReference: {fileID: 0}
     - target: {fileID: 723207555472972304, guid: 2455a83bece49c648b6102f5e23d0a65,
         type: 3}
       propertyPath: myCol
       value: 
       objectReference: {fileID: 5370035820615678580}
+    - target: {fileID: 723207556800096393, guid: 2455a83bece49c648b6102f5e23d0a65,
+        type: 3}
+      propertyPath: EmoteSlot
+      value: 
+      objectReference: {fileID: 214325942157772847}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2455a83bece49c648b6102f5e23d0a65, type: 3}
 --- !u!1 &5370035821938297059 stripped

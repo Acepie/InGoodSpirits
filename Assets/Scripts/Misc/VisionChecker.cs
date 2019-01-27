@@ -55,12 +55,13 @@ public class VisionChecker : MonoBehaviour
     }
     else if (col.tag.Equals("NPC"))
     {
-            NPC otherNPC = null;
-            //We're checking if we're friendly
-            try
-            {
-                otherNPC = col.gameObject.transform.parent.gameObject.GetComponent<NPC>();
-            } catch { }
+      NPC otherNPC = null;
+      //We're checking if we're friendly
+      try
+      {
+        otherNPC = col.gameObject.transform.parent.gameObject.GetComponent<NPC>();
+      }
+      catch { }
 
       if (parent_Script.AreWeFriends(otherNPC))
       {
