@@ -12,11 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1df1ee6283734d40bab5fe0d12c48a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  homePosition: {fileID: 0}
+  homeFloor: 2
   speed: 7
-  routines: {fileID: 0}
+  routineToDo: {fileID: 0}
   EmoteSlot: {fileID: 0}
   itemToCreate:
   - {fileID: 0}
+  anim: {fileID: 0}
+  currentFloor: 2
+  elevatorManager: {fileID: 0}
   direction: 0
 --- !u!1001 &5122998144013858817
 PrefabInstance:
@@ -33,32 +38,32 @@ PrefabInstance:
     - target: {fileID: 723207556800096396, guid: 2455a83bece49c648b6102f5e23d0a65,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -14.939665
       objectReference: {fileID: 0}
     - target: {fileID: 723207556800096396, guid: 2455a83bece49c648b6102f5e23d0a65,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 10.374798
       objectReference: {fileID: 0}
     - target: {fileID: 723207556800096396, guid: 2455a83bece49c648b6102f5e23d0a65,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -0.043307293
       objectReference: {fileID: 0}
     - target: {fileID: 723207556800096396, guid: 2455a83bece49c648b6102f5e23d0a65,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 723207556800096396, guid: 2455a83bece49c648b6102f5e23d0a65,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 723207556800096396, guid: 2455a83bece49c648b6102f5e23d0a65,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 723207556800096396, guid: 2455a83bece49c648b6102f5e23d0a65,
         type: 3}
@@ -87,21 +92,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 723207555472972304, guid: 2455a83bece49c648b6102f5e23d0a65,
         type: 3}
-      propertyPath: parent_Script
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 723207555472972304, guid: 2455a83bece49c648b6102f5e23d0a65,
-        type: 3}
       propertyPath: myCol
       value: 
       objectReference: {fileID: 5553451657527173648}
-    - target: {fileID: 2450660258486646588, guid: 2455a83bece49c648b6102f5e23d0a65,
-        type: 3}
-      propertyPath: m_TagString
-      value: Emote Tag
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 723207556800096393, guid: 2455a83bece49c648b6102f5e23d0a65, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2455a83bece49c648b6102f5e23d0a65, type: 3}
 --- !u!1 &5553451656770539655 stripped
 GameObject:

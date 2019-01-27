@@ -9,11 +9,11 @@ public class StupidInviteScript : MonoBehaviour
     static bool floristReceived = false;
     static bool loverReceived = false;
     static bool guardReceived = false;
-    public NPC baker;
-    public NPC florist;
-    public NPC guard;
-    public NPC musician;
-    public NPC lover;
+    NPC baker;
+    NPC florist;
+    NPC guard;
+    NPC musician;
+    NPC lover;
 
     private void Awake()
     {
