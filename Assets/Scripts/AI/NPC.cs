@@ -37,7 +37,6 @@ public class NPC : MonoBehaviour, INPC
     elevatorManager = GameObject.FindGameObjectWithTag("Elevator Manager").GetComponent<ElevatorManager>();
     friendSet = new HashSet<NPC>();
     SetEmoteSlot();
-
   }
 
   protected void SetEmoteSlot()
@@ -56,6 +55,15 @@ public class NPC : MonoBehaviour, INPC
 
   public void SetVelocity(Vector2 vel)
   {
+    if(Mathf.Abs(vel.x) > 0){
+      Debug.Log("walk yes");
+      anim.SetBool("walking", true);
+    }else{
+      Debug.Log("walk no");
+      anim.SetBool("walking", false);
+    }
+    if(vel.x < 0) GetComponent<SpriteRenderer>().flipX = false;
+    if(vel.x > 0) GetComponent<SpriteRenderer>().flipX = true;
     rb2d.velocity = vel;
   }
 
