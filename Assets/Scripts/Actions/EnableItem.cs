@@ -4,24 +4,28 @@ using UnityEngine;
 
 public class EnableItem : IAction
 {
-    public GameObject itemToEnable;
+    public GameObject[] itemToEnable;
 
-    public EnableItem(GameObject g)
+    public EnableItem(GameObject[] g)
     {
         itemToEnable = g;
-        Debug.Log(itemToEnable.name);
+        foreach(GameObject item in itemToEnable){
+            Debug.Log(item.name);
+        }
     }
 
-    public void SetItem(GameObject i)
+    public void SetItem(GameObject[] i)
     {
         itemToEnable = i;
     }
     public IEnumerator DoAction()
     {
         Debug.Log(Time.time);
-        Debug.Log(itemToEnable.name + "im doing it");
-        itemToEnable.GetComponent<Collider2D>().enabled = true;
-        itemToEnable.GetComponent<SpriteRenderer>().enabled = true;
+        foreach(GameObject item in itemToEnable){
+         Debug.Log(item.name + "ENABLED!");
+         item.GetComponent<Collider2D>().enabled = true;
+         item.GetComponent<SpriteRenderer>().enabled = true;
+        }
         yield return null;
     }
 }

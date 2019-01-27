@@ -14,7 +14,7 @@ public class NPC : MonoBehaviour, INPC
   [SerializeField]
   public SpriteRenderer EmoteSlot;
   public HashSet<NPC> friendSet;
-  public GameObject itemToCreate;
+  public GameObject[] itemToCreate;
 
   protected ElevatorManager elevatorManager;
   public FacingDirection direction = FacingDirection.RIGHT;
