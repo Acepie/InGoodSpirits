@@ -165,11 +165,6 @@ public class Player : MonoBehaviour
     return velocity;
   }
 
-  private void eyeAnimTransition(string anim)
-  {
-    //Debug.Log(eyeAnim.GetCurrentAnimatorStateInfo(0));
-  }
-
   private void OnHover()
   {
     GameObject go = GameObjectBelowMouse();

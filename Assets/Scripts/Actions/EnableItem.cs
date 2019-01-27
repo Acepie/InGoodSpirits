@@ -9,10 +9,6 @@ public class EnableItem : IAction
   public EnableItem(GameObject[] g)
   {
     itemToEnable = g;
-    foreach (GameObject item in itemToEnable)
-    {
-      Debug.Log(item.name);
-    }
   }
 
   public void SetItem(GameObject[] i)
@@ -21,10 +17,8 @@ public class EnableItem : IAction
   }
   public IEnumerator DoAction()
   {
-    Debug.Log(Time.time);
     foreach (GameObject item in itemToEnable)
     {
-      Debug.Log(item.name + "ENABLED!");
       item.GetComponent<Collider2D>().enabled = true;
       item.GetComponent<SpriteRenderer>().enabled = true;
       SoundManager.PlaySound(item.GetComponent<AudioSource>());

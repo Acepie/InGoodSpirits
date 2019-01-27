@@ -37,7 +37,6 @@ public class Florist : NPC
   }
   public void OnDoorBellRang()
   {
-    Debug.Log("Got here");
     if (isHome)
     {
       door.GetComponent<Door>().OpenDoor();
