@@ -19,7 +19,6 @@ public class EnableItem : IAction
     public IEnumerator DoAction()
     {
         Debug.Log(Time.time);
-        Debug.Log(itemToEnable.name + "im doing it");
         itemToEnable.GetComponent<Collider2D>().enabled = true;
         itemToEnable.GetComponent<SpriteRenderer>().enabled = true;
         SoundManager.PlaySound(itemToEnable.GetComponent<AudioSource>());

@@ -15,7 +15,7 @@ public class Florist : NPC
         // testActions.Add(new MoveTo(new Vector2(5, elevatorManager.GetDestinationPosition(Floor.Ground).y), this));
         // testActions.Add(new MoveTo(new Vector2(15, elevatorManager.GetDestinationPosition(Floor.Ground).y), this));
 
-        routines.AddAction(new Wait(.1f));
+        routines.AddAction(new Wait(1f));
         routines.AddAction(new MoveTo(elevatorManager.GetDestinationPosition(Floor.First), this));
         routines.AddAction(new UseElevator(this, Floor.Ground));
         routines.AddAction(new MoveTo(new Vector2(5, elevatorManager.GetDestinationPosition(Floor.Ground).y), this));
