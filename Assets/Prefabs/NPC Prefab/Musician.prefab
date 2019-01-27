@@ -43,6 +43,7 @@ MonoBehaviour:
   - {fileID: 0}
   anim: {fileID: 4019014780298485039}
   currentFloor: 1
+  elevatorOffset: 0
   elevatorManager: {fileID: 0}
   direction: 0
   soundToPlay: {fileID: 8300000, guid: 4997bd093d0c0444a8cc56c4726cfca0, type: 3}
@@ -58,16 +59,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Musician
-      objectReference: {fileID: 0}
-    - target: {fileID: 7966555774204089379, guid: 2455a83bece49c648b6102f5e23d0a65,
-        type: 3}
-      propertyPath: m_Offset.x
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7966555774204089379, guid: 2455a83bece49c648b6102f5e23d0a65,
-        type: 3}
-      propertyPath: m_Radius
-      value: 4.352631
       objectReference: {fileID: 0}
     - target: {fileID: 723207556800096396, guid: 2455a83bece49c648b6102f5e23d0a65,
         type: 3}
@@ -139,6 +130,36 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6677760606824192491, guid: 2455a83bece49c648b6102f5e23d0a65,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 6677760606824192491, guid: 2455a83bece49c648b6102f5e23d0a65,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6677760606824192491, guid: 2455a83bece49c648b6102f5e23d0a65,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6677760606824192491, guid: 2455a83bece49c648b6102f5e23d0a65,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7966555774204089379, guid: 2455a83bece49c648b6102f5e23d0a65,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7966555774204089379, guid: 2455a83bece49c648b6102f5e23d0a65,
+        type: 3}
+      propertyPath: m_Radius
+      value: 4.352631
+      objectReference: {fileID: 0}
     - target: {fileID: 723207556800096395, guid: 2455a83bece49c648b6102f5e23d0a65,
         type: 3}
       propertyPath: m_Sprite
@@ -163,26 +184,6 @@ PrefabInstance:
     - target: {fileID: 723207556800096394, guid: 2455a83bece49c648b6102f5e23d0a65,
         type: 3}
       propertyPath: m_BodyType
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6677760606824192491, guid: 2455a83bece49c648b6102f5e23d0a65,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 1.75
-      objectReference: {fileID: 0}
-    - target: {fileID: 6677760606824192491, guid: 2455a83bece49c648b6102f5e23d0a65,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6677760606824192491, guid: 2455a83bece49c648b6102f5e23d0a65,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6677760606824192491, guid: 2455a83bece49c648b6102f5e23d0a65,
-        type: 3}
-      propertyPath: m_LocalScale.y
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 723207555472972305, guid: 2455a83bece49c648b6102f5e23d0a65,
@@ -210,6 +211,24 @@ PrefabInstance:
       propertyPath: myCol
       value: 
       objectReference: {fileID: 8606799894800110346}
+    - target: {fileID: 723207555472972304, guid: 2455a83bece49c648b6102f5e23d0a65,
+        type: 3}
+      propertyPath: alerted_sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 50192e8157de52545bd1b95f1a3c6a16,
+        type: 3}
+    - target: {fileID: 723207555472972304, guid: 2455a83bece49c648b6102f5e23d0a65,
+        type: 3}
+      propertyPath: suspicious_sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 774ff29701c6a624bb70218c1fc1bd28,
+        type: 3}
+    - target: {fileID: 723207555472972304, guid: 2455a83bece49c648b6102f5e23d0a65,
+        type: 3}
+      propertyPath: happyFace
+      value: 
+      objectReference: {fileID: 21300000, guid: f7f4ed161aa37844b8fc263be2970ae0,
+        type: 3}
     m_RemovedComponents:
     - {fileID: 723207556800096393, guid: 2455a83bece49c648b6102f5e23d0a65, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 2455a83bece49c648b6102f5e23d0a65, type: 3}
