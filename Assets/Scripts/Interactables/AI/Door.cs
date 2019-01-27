@@ -33,7 +33,7 @@ public class Door : MonoBehaviour
         if (!doorOpening)
         {
             IEnumerator cor = OpenDoorCoroutine();
-            SoundManager.PlaySound(clipToPlay);
+            SoundManager.PlaySound(clipToPlay, 0.5f);
             StartCoroutine(cor);
         }
     }

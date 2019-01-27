@@ -19,6 +19,14 @@ public  class SoundManager : MonoBehaviour
         source.Play();
     }
 
+    public static void PlaySound(AudioClip a, float vol)
+    {
+        source.volume = vol;
+        source.clip = a;
+        source.Play();
+        source.volume = 1;
+    }
+
     public static void OnSuccess(NPCClass c){
         switch (c)
         {

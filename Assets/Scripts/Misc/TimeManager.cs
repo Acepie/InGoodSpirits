@@ -5,7 +5,7 @@ public class TimeManager
   private static float startTime = 0f;
   private const int NUM_HOURS = 12;
 
-  private const float SECONDS_PER_HOUR = 3;
+  private const float SECONDS_PER_HOUR = 6;
 
   public static void ResetTime()
   {
