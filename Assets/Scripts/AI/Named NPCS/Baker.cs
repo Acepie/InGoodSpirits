@@ -34,7 +34,7 @@ public class Baker : NPC
         routineToDo.AddAction(new Wait(.25f));
         routineToDo.AddAction(new MoveTo(elevatorManager.GetDestinationPosition(Floor.Second), this));
         routineToDo.AddAction(new UseElevator(this, Floor.Ground));
-        routineToDo.AddAction(new MoveTo((GameObject.Find("Off Camera Waypoint").transform.position), this));
+        routineToDo.AddAction(new MoveTo(new Vector2(20, elevatorManager.GetDestinationPosition(Floor.Ground).y), this));
         routineToDo.AddAction(new Wait(.3f));
         routineToDo.AddAction(new MoveTo(elevatorManager.GetDestinationPosition(Floor.Ground), this));
         routineToDo.AddAction(new UseElevator(this, Floor.Second));

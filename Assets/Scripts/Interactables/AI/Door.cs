@@ -37,12 +37,12 @@ public class Door : MonoBehaviour
         doorOpening = true;
         startTransformPos = transform.position;
         rb2d.velocity = new Vector2(0, doorOpenSpeed);
-        yield return new WaitForSeconds(.2f);
+        yield return new WaitForSeconds(.1f);
         rb2d.velocity = new Vector2(0, 0);
         yield return new WaitForSeconds(.5f);
         startTransformPos = transform.position;
         rb2d.velocity = new Vector2(0, -doorOpenSpeed);
-        yield return new WaitForSeconds(.2f);
+        yield return new WaitForSeconds(.1f);
         rb2d.velocity = new Vector2(0, 0);
         doorOpening = false;
     }

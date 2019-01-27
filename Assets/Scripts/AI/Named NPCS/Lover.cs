@@ -26,7 +26,7 @@ public class Lover : NPC {
         //Go To lover's room
         routineToDo.AddAction(new MoveTo(elevatorManager.GetDestinationPosition(Floor.First), this));
         routineToDo.AddAction(new UseElevator(this, Floor.Second));
-        routineToDo.AddAction(new MoveTo(GameObject.Find("Florist Door Dest").transform.position, this));
+        routineToDo.AddAction(new MoveTo(GameObject.Find("Florist Room Dest").transform.position, this));
         routineToDo.AddAction(new Wait(.1f));
         routineToDo.AddAction(new DoEmote(sadEmote, source, this, 3));
 

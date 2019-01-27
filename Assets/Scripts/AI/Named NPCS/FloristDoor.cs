@@ -8,4 +8,5 @@ public class FloristDoor : Door
     {
         return collision.tag == "NPC" && collision.name != "Lover" && !doorOpening;
     }
+
 }

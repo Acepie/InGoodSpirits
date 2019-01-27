@@ -62,6 +62,36 @@ public class NPC : MonoBehaviour, INPC
 
   public void SetVelocity(Vector2 vel)
   {
+    if (Mathf.Abs(vel.x) > 0)
+    {
+      if (anim != null)
+      {
+        anim.SetBool("walking", true);
+      }
+      else
+      {
+        Debug.Log("This character has no animator");
+      }
+    }
+    else
+    {
+      if (anim != null)
+      {
+        anim.SetBool("walking", false);
+      }
+      else
+      {
+        Debug.Log("This character has no animator");
+      }
+    }
+    if (vel.x < 0)
+    {
+      transform.localScale = new Vector3(-Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
+    }
+    if (vel.x > 0)
+    {
+      transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
+    }
     rb2d.velocity = vel;
   }
 
