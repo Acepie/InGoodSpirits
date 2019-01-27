@@ -9,7 +9,7 @@ public class Player : MonoBehaviour
   public float controlLoss = 0;
   public float itemPickupRadius = 1f;
   private int tick = 0;
-  private Rect bounds = new Rect(-10f, 9f, 17, 14.5f);
+  public Rect bounds; //= new Rect(-15f, 10f, 18f, 16f);
   private Rigidbody2D rb2d;
   private PlayerInteractable interactableHoveringOver;
 
@@ -221,6 +221,11 @@ public class Player : MonoBehaviour
             DestryoRB2D();
             isCarryingItem = true;
     }
+  }
+   void OnDrawGizmos()
+  {
+    Gizmos.color = Color.red;
+    Gizmos.DrawCube(new Vector2(bounds.x + bounds.width / 2, bounds.y - bounds.height / 2), new Vector2(bounds.width, bounds.height));
   }
 
   private void DropItem()

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8195586172345018679}
   - component: {fileID: 8485359919091010931}
   - component: {fileID: 971081327387990555}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: ghostBody
   m_TagString: ghostBody
   m_Icon: {fileID: 0}
@@ -129,7 +129,7 @@ GameObject:
   - component: {fileID: 3526457326901626405}
   - component: {fileID: 3526457326901626394}
   - component: {fileID: 3526457326901626395}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -207,6 +207,12 @@ MonoBehaviour:
   maxSpeed: 7.5
   controlLoss: 0
   itemPickupRadius: 2
+  bounds:
+    serializedVersion: 2
+    x: -13
+    y: 10
+    width: 18
+    height: 16
   isCarryingItem: 0
   isDiscoverable: 0
 --- !u!1 &3813238053756137216
@@ -221,7 +227,7 @@ GameObject:
   - component: {fileID: 8838001690048026893}
   - component: {fileID: 1152032766201116274}
   - component: {fileID: 4247405136518165269}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: ghostEyes
   m_TagString: ghostEyes
   m_Icon: {fileID: 0}
