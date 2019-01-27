@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Door : MonoBehaviour
 {
-
     public float doorOpenSpeed;
     Rigidbody2D rb2d;
     private float distTraveled;
@@ -13,34 +12,36 @@ public class Door : MonoBehaviour
     bool doorOpening = false;
     public AudioClip clipToPlay;
 
-    private void Awake()
-    {
-        rb2d = GetComponent<Rigidbody2D>();
-    }
+  private void Awake()
+  {
+    rb2d = GetComponent<Rigidbody2D>();
+  }
 
-    private void Update()
+  private void Update()
+  {
+    if (doorOpening && CalcDistanceTraveled() > maxDistMoved)
     {
-        if (doorOpening && CalcDistanceTraveled() > maxDistMoved)
-        {
-            rb2d.velocity = Vector2.zero;
-            distTraveled = 0;
-        }
-    }
+      doorOpening = false;
+      rb2d.velocity = Vector2.zero;
+      distTraveled = 0;
 
-    private float CalcDistanceTraveled()
-    {
-        return Vector2.Distance(startTransformPos, transform.position);
     }
+  }
 
-    public void OpenDoor()
+  private float CalcDistanceTraveled()
+  {
+    return Vector2.Distance(startTransformPos, transform.position);
+  }
+
+  public void OpenDoor()
+  {
+    if (!doorOpening)
     {
-        if (!doorOpening)
-        {
-            IEnumerator cor = OpenDoorCoroutine();
-            SoundManager.PlaySound(clipToPlay);
-            StartCoroutine(cor);
-        }
+        IEnumerator cor = OpenDoorCoroutine();
+        SoundManager.PlaySound(clipToPlay);
+        StartCoroutine(cor);
     }
+  }
 
     public IEnumerator CloseDoorCoroutine()
     {
@@ -62,16 +63,14 @@ public class Door : MonoBehaviour
         yield return CloseDoorCoroutine();
     }
 
-    void OnTriggerStay2D(Collider2D collision)
+  void OnTriggerStay2D(Collider2D collision)
+  {
+    if (collision.tag == "NPC")
     {
-        if(collision.gameObject.GetComponent<NPC>() != null)
-        {
-            if (!doorOpening)
-            {
-                /*IEnumerator cor = OpenDoorCoroutine();
-                StartCoroutine(cor);*/
-                OpenDoor();
-            }
-        }
+      if (!doorOpening)
+      {
+        OpenDoor();
+      }
     }
+  }
 }

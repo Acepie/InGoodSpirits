@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Elevator Manager
+  - body
+  - ghostBody
+  - ghostEyes
   - NPC
   - Emote Tag
   - Florist Door
@@ -23,7 +26,7 @@ TagManager:
   - 
   - NPC
   - FloorWalls
-  - 
+  - Items
   - 
   - 
   - 
@@ -54,4 +57,7 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 1178457879
+    locked: 0
+  - name: Items
+    uniqueID: 1838399205
     locked: 0

@@ -4,26 +4,25 @@ using UnityEngine;
 
 public class EnableItem : IAction
 {
-    public GameObject itemToEnable;
-    public AudioClip clipToPlay;
+  public GameObject[] itemToEnable;
 
-    public EnableItem(GameObject g)
-    {
-        itemToEnable = g;
-        clipToPlay = itemToEnable.GetComponent<PickupInteractable>().onPickupClip;
-        Debug.Log(itemToEnable.name);
-    }
+  public EnableItem(GameObject[] g)
+  {
+    itemToEnable = g;
+  }
 
-    public void SetItem(GameObject i)
+  public void SetItem(GameObject[] i)
+  {
+    itemToEnable = i;
+  }
+  public IEnumerator DoAction()
+  {
+    foreach (GameObject item in itemToEnable)
     {
-        itemToEnable = i;
+      item.GetComponent<Collider2D>().enabled = true;
+      item.GetComponent<SpriteRenderer>().enabled = true;
+      SoundManager.PlaySound(item.GetComponent<PickupInteractable>().clipToPlay);
     }
-    public IEnumerator DoAction()
-    {
-        Debug.Log(Time.time);
-        itemToEnable.GetComponent<Collider2D>().enabled = true;
-        itemToEnable.GetComponent<SpriteRenderer>().enabled = true;
-        SoundManager.PlaySound(clipToPlay);
-        yield return null;
-    }
+    yield return null;
+  }
 }
