@@ -1860,7 +1860,7 @@ GameObject:
   - component: {fileID: 1218079875}
   - component: {fileID: 1218079874}
   - component: {fileID: 1218079873}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: DoorBell
   m_TagString: Untagged
   m_Icon: {fileID: 0}
