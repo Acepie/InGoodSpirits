@@ -4,17 +4,23 @@ using UnityEngine;
 
 public class Door : MonoBehaviour
 {
-    public float doorOpenSpeed;
     Rigidbody2D rb2d;
-    protected float distTraveled;
-    public float maxDistMoved = 4f;
+
+    [SerializeField]
+    public float distTraveled;
     protected Vector2 startTransformPos;
     protected bool doorOpening = false;
     public AudioClip clipToPlay;
 
+    protected Vector2 endTransformPos;
+
     private void Awake()
     {
+        startTransformPos = transform.position;
         rb2d = GetComponent<Rigidbody2D>();
+        endTransformPos = startTransformPos + new Vector2(0, distTraveled);
+
+
     }
 
     protected virtual bool CheckOpenDoor(Collider2D collision)
@@ -35,15 +41,9 @@ public class Door : MonoBehaviour
     IEnumerator OpenDoorCoroutine()
     {
         doorOpening = true;
-        startTransformPos = transform.position;
-        rb2d.velocity = new Vector2(0, doorOpenSpeed);
-        yield return new WaitForSeconds(.1f);
-        rb2d.velocity = new Vector2(0, 0);
-        yield return new WaitForSeconds(.5f);
-        startTransformPos = transform.position;
-        rb2d.velocity = new Vector2(0, -doorOpenSpeed);
-        yield return new WaitForSeconds(.1f);
-        rb2d.velocity = new Vector2(0, 0);
+        rb2d.MovePosition(endTransformPos);
+        yield return new WaitForSeconds(TimeManager.gameTimeToTime(.15f));
+        rb2d.MovePosition(startTransformPos);
         doorOpening = false;
     }
 
