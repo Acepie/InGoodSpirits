@@ -5,6 +5,7 @@
     private new void Awake()
     {
         base.Awake();
+        currentFloor = Floor.Ground;
     }
 
     private void Loop()

@@ -11,18 +11,17 @@ public abstract class ChangeRoutine : IAction
   {
     if (shouldChange())
     {
-      if (npc.routines.isActioning)
+      if (npc.routineToDo.isActioning)
       {
-        npc.routines.StopActions();
+        npc.routineToDo.StopActions();
       }
-      npc.routines.ClearActions();
+      npc.routineToDo.ClearActions();
       foreach (var action in actions)
       {
-        npc.routines.AddAction(action);
+        npc.routineToDo.AddAction(action);
       }
-      npc.routines.StartRoutine();
+      npc.routineToDo.StartRoutine();
     }
-
     yield return null;
   }
 

@@ -7,72 +7,51 @@ public class Door : MonoBehaviour
     public float doorOpenSpeed;
     Rigidbody2D rb2d;
     protected float distTraveled;
-    public float maxDistMoved = 2f;
+    public float maxDistMoved = 4f;
     protected Vector2 startTransformPos;
     protected bool doorOpening = false;
     public AudioClip clipToPlay;
 
-  private void Awake()
-  {
-    rb2d = GetComponent<Rigidbody2D>();
-  }
-
-  private void Update()
-  {
-    if (doorOpening && CalcDistanceTraveled() > maxDistMoved)
+    private void Awake()
     {
-      doorOpening = false;
-      rb2d.velocity = Vector2.zero;
-      distTraveled = 0;
-
+        rb2d = GetComponent<Rigidbody2D>();
     }
-  }
 
     protected virtual bool CheckOpenDoor(Collider2D collision)
     {
         return collision.tag == "NPC" && !doorOpening;
     }
 
-  private float CalcDistanceTraveled()
-  {
-    return Vector2.Distance(startTransformPos, transform.position);
-  }
-
-  public void OpenDoor()
-  {
-    if (!doorOpening)
+    public void OpenDoor()
     {
-        IEnumerator cor = OpenDoorCoroutine();
-        SoundManager.PlaySound(clipToPlay);
-        StartCoroutine(cor);
-    }
-  }
-
-    public IEnumerator CloseDoorCoroutine()
-    {
-        doorOpening = true;
-        startTransformPos = transform.position;
-        rb2d.velocity = new Vector2(0, -doorOpenSpeed);
-        yield return new WaitForSeconds(3f);
-        doorOpening = false;
+        if (!doorOpening)
+        {
+            IEnumerator cor = OpenDoorCoroutine();
+            SoundManager.PlaySound(clipToPlay);
+            StartCoroutine(cor);
+        }
     }
 
     IEnumerator OpenDoorCoroutine()
     {
-        Debug.Log(this.name);
         doorOpening = true;
         startTransformPos = transform.position;
         rb2d.velocity = new Vector2(0, doorOpenSpeed);
-        yield return new WaitForSeconds(1.25f);
+        yield return new WaitForSeconds(.2f);
+        rb2d.velocity = new Vector2(0, 0);
+        yield return new WaitForSeconds(.5f);
+        startTransformPos = transform.position;
+        rb2d.velocity = new Vector2(0, -doorOpenSpeed);
+        yield return new WaitForSeconds(.2f);
+        rb2d.velocity = new Vector2(0, 0);
         doorOpening = false;
-        yield return CloseDoorCoroutine();
     }
 
-  protected virtual void OnTriggerStay2D(Collider2D collision)
-  {
+    protected virtual void OnTriggerStay2D(Collider2D collision)
+    {
         if (CheckOpenDoor(collision))
         {
             OpenDoor();
         }
-  }
+    }
 }

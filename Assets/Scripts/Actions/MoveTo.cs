@@ -5,16 +5,30 @@ using UnityEngine;
 public class MoveTo : IAction
 {
   public Vector2 destination;
-  private IEnumerator moveCoroutine;
-  private NPC n;
+  protected IEnumerator moveCoroutine;
+  protected NPC n;
+    private ElevatorManager elevatorManager = GameObject.FindGameObjectWithTag("Elevator Manager").GetComponent<ElevatorManager>();
 
-  public MoveTo(Vector2 d, NPC n_)
+    public MoveTo(Vector2 d, NPC n_)
   {
     destination = d;
     n = n_;
   }
 
-  IEnumerator IAction.DoAction()
+    /// <summary>
+    /// Sets destination as elevator on same floor
+    /// </summary>
+    /// <param name="d"></param>
+    /// <param name="n_"></param>
+    /// <param name="s"></param>
+public MoveTo(Vector2 d, NPC n_, string s)
+{
+        destination = elevatorManager.GetDestinationPosition(n_.homeFloor);
+        Debug.Log(destination);
+        n = n_;
+}
+
+    public IEnumerator DoAction()
   {
     //manage our NPC's facing direction
     bool X_dist = destination.x > n.gameObject.transform.position.x;
@@ -23,7 +37,7 @@ public class MoveTo : IAction
     return Move(destination);
   }
 
-  private IEnumerator Move(Vector2 destination)
+    protected IEnumerator Move(Vector2 destination)
   {
     float dist = Vector2.Distance(n.GetPos(), destination);
     while (dist > 0.1)

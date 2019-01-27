@@ -16,6 +16,7 @@ TagManager:
   - Baker Door
   - L_Waypoint
   - Front Door
+  - Cookie
   layers:
   - Default
   - TransparentFX
@@ -26,11 +27,11 @@ TagManager:
   - 
   - 
   - NPC
-  - FloorWalls
+  - Floor
   - Items
-  - 
-  - 
-  - 
+  - OuterWalls
+  - Player
+  - InnerWalls
   - 
   - 
   - 

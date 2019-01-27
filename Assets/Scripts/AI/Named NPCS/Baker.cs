@@ -3,36 +3,42 @@
 public class Baker : NPC
 {
 
-  new void Awake()
-  {
-    base.Awake();
-  }
-  // Use this for initialization
-  private void Start()
-  {
-    SetRoutine();
-    StartRoutine();
-  }
 
-  private void Update()
-  {
-    if (!routines.isActioning)
+    new void Awake()
     {
-      StartRoutine();
-    }
-  }
+        base.Awake();
+        currentFloor = Floor.Second;
+        homeFloor = Floor.Second;
 
-  private void SetRoutine()
-  {
-    routines.AddAction(new Wait(.25f));
-    routines.AddAction(new EnableItem(itemToCreate));
-    routines.AddAction(new Wait(.25f));
-    routines.AddAction(new MoveTo(elevatorManager.GetDestinationPosition(Floor.Second), this));
-    routines.AddAction(new UseElevator(this, Floor.Ground));
-    routines.AddAction(new MoveTo(new Vector2(15, elevatorManager.GetDestinationPosition(Floor.Ground).y), this));
-    routines.AddAction(new Wait(.3f));
-    routines.AddAction(new MoveTo(elevatorManager.GetDestinationPosition(Floor.Ground), this));
-    routines.AddAction(new UseElevator(this, Floor.Second));
-    routines.AddAction(new MoveTo(GameObject.Find("Baker Room Waypoint").transform.position, this));
-  }
+    }
+    // Use this for initialization
+    private void Start()
+    {
+        SetRoutine();
+        normalRoutine = routineToDo.GetActions();
+        StartRoutine();
+    }
+
+    private void Update()
+    {
+        if (!routineToDo.isActioning)
+        {
+            StartRoutine();
+        }
+    }
+
+    private void SetRoutine()
+    {
+        routineToDo.AddAction(new Wait(.25f));
+        routineToDo.AddAction(new EnableItem(itemToCreate));
+        routineToDo.AddAction(new Wait(.25f));
+        routineToDo.AddAction(new MoveTo(elevatorManager.GetDestinationPosition(Floor.Second), this));
+        routineToDo.AddAction(new UseElevator(this, Floor.Ground));
+        routineToDo.AddAction(new MoveTo((GameObject.Find("Off Camera Waypoint").transform.position), this));
+        routineToDo.AddAction(new Wait(.3f));
+        routineToDo.AddAction(new MoveTo(elevatorManager.GetDestinationPosition(Floor.Ground), this));
+        routineToDo.AddAction(new UseElevator(this, Floor.Second));
+        routineToDo.AddAction(new MoveTo(GameObject.Find("Baker Room Waypoint").transform.position, this));
+    }
+
 }
