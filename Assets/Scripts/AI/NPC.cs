@@ -15,7 +15,7 @@ public class NPC : MonoBehaviour, INPC
 {
 
   public enum FacingDirection { RIGHT, LEFT };
-    private bool swapNextRoutine = false;
+    protected bool swapNextRoutine = false;
     public Floor homeFloor;
 
   public float speed;
@@ -124,7 +124,7 @@ public class NPC : MonoBehaviour, INPC
 
     }
 
-    public void GetNextRoutine()
+    public virtual void GetNextRoutine()
     {
         Debug.Log("next routine for " + this.name);
         if (swapNextRoutine)
