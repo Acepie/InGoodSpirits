@@ -3,6 +3,8 @@
 public class PickupInteractable : MonoBehaviour, PlayerInteractable
 {
   private Vector3 startScale;
+    public AudioClip clipToPlay;
+
 
   public virtual void OnInteract(Player p)
   {

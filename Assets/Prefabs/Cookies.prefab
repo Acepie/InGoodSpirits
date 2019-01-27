@@ -113,10 +113,31 @@ PrefabInstance:
       propertyPath: m_Size.y
       value: 1.4
       objectReference: {fileID: 0}
+    - target: {fileID: 5672337316930035632, guid: 08cdac9a3a9403b4bb322b3f5fa3fe49,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: 1838399205
+      objectReference: {fileID: 0}
+    - target: {fileID: 5672337316930035632, guid: 08cdac9a3a9403b4bb322b3f5fa3fe49,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5672337316930035632, guid: 08cdac9a3a9403b4bb322b3f5fa3fe49,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5672337316930035635, guid: 08cdac9a3a9403b4bb322b3f5fa3fe49,
         type: 3}
       propertyPath: m_Radius
       value: 2
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 7072177552022133522, guid: 08cdac9a3a9403b4bb322b3f5fa3fe49,
+        type: 3}
+      propertyPath: clipToPlay
+      value: 
+      objectReference: {fileID: 8300000, guid: 507149539a0947e448ebd99c04b83f25, type: 3}
+    m_RemovedComponents:
+    - {fileID: 5396969748371497609, guid: 08cdac9a3a9403b4bb322b3f5fa3fe49, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 08cdac9a3a9403b4bb322b3f5fa3fe49, type: 3}

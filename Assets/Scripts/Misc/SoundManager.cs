@@ -5,16 +5,18 @@ using UnityEngine.Events;
 
 public  class SoundManager : MonoBehaviour
 {
-
+    public static AudioSource source;
     private static Osborne_HouseGhostAudio house;
 
     private void Awake()
     {
         house = GetComponent<Osborne_HouseGhostAudio>();
+        source = GetComponent<AudioSource>();
     }
-    public static void PlaySound(AudioSource a)
+    public static void PlaySound(AudioClip a)
     {
-        a.Play(0);
+        source.clip = a;
+        source.Play();
     }
 
     public static void OnSuccess(NPCClass c){
