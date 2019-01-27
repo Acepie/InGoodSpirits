@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class Door : MonoBehaviour
 {
-    public float doorOpenSpeed;
-    Rigidbody2D rb2d;
-    protected float distTraveled;
-    public float maxDistMoved = 2f;
-    protected Vector2 startTransformPos;
-    protected bool doorOpening = false;
-    public AudioClip clipToPlay;
+  public float doorOpenSpeed;
+  Rigidbody2D rb2d;
+  protected float distTraveled;
+  public float maxDistMoved = 2f;
+  protected Vector2 startTransformPos;
+  protected bool doorOpening = false;
+  public AudioClip clipToPlay;
 
   private void Awake()
   {
@@ -28,10 +28,10 @@ public class Door : MonoBehaviour
     }
   }
 
-    protected virtual bool CheckOpenDoor(Collider2D collision)
-    {
-        return collision.tag == "NPC" && !doorOpening;
-    }
+  protected virtual bool CheckOpenDoor(Collider2D collision)
+  {
+    return collision.tag == "NPC" && !doorOpening;
+  }
 
   private float CalcDistanceTraveled()
   {
@@ -42,37 +42,36 @@ public class Door : MonoBehaviour
   {
     if (!doorOpening)
     {
-        IEnumerator cor = OpenDoorCoroutine();
-        SoundManager.PlaySound(clipToPlay);
-        StartCoroutine(cor);
+      IEnumerator cor = OpenDoorCoroutine();
+      SoundManager.PlaySound(clipToPlay);
+      StartCoroutine(cor);
     }
   }
 
-    public IEnumerator CloseDoorCoroutine()
-    {
-        doorOpening = true;
-        startTransformPos = transform.position;
-        rb2d.velocity = new Vector2(0, -doorOpenSpeed);
-        yield return new WaitForSeconds(3f);
-        doorOpening = false;
-    }
+  public IEnumerator CloseDoorCoroutine()
+  {
+    doorOpening = true;
+    startTransformPos = transform.position;
+    rb2d.velocity = new Vector2(0, -doorOpenSpeed);
+    yield return new WaitForSeconds(3f);
+    doorOpening = false;
+  }
 
-    IEnumerator OpenDoorCoroutine()
-    {
-        Debug.Log(this.name);
-        doorOpening = true;
-        startTransformPos = transform.position;
-        rb2d.velocity = new Vector2(0, doorOpenSpeed);
-        yield return new WaitForSeconds(1.25f);
-        doorOpening = false;
-        yield return CloseDoorCoroutine();
-    }
+  IEnumerator OpenDoorCoroutine()
+  {
+    doorOpening = true;
+    startTransformPos = transform.position;
+    rb2d.velocity = new Vector2(0, doorOpenSpeed);
+    yield return new WaitForSeconds(1.25f);
+    doorOpening = false;
+    yield return CloseDoorCoroutine();
+  }
 
   protected virtual void OnTriggerStay2D(Collider2D collision)
   {
-        if (CheckOpenDoor(collision))
-        {
-            OpenDoor();
-        }
+    if (CheckOpenDoor(collision))
+    {
+      OpenDoor();
+    }
   }
 }
