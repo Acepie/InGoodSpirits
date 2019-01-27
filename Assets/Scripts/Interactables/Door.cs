@@ -1,0 +1,63 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Door : MonoBehaviour
+{
+
+    public float doorOpenSpeed;
+    Rigidbody2D rb2d;
+    private float distTraveled;
+    public float maxDistMoved = 2f;
+    private Vector2 startTransformPos;
+    bool doorOpening = false;
+
+    private void Awake()
+    {
+        rb2d = GetComponent<Rigidbody2D>();
+    }
+
+    private void Update()
+    {
+        if (CalcDistanceTraveled() > maxDistMoved)
+        {
+            doorOpening = false;
+            rb2d.velocity = Vector2.zero;
+            distTraveled = 0;
+        }
+    }
+
+    private float CalcDistanceTraveled()
+    {
+        return Vector2.Distance(startTransformPos, transform.position);
+    }
+
+    public IEnumerator CloseDoor()
+    {
+        doorOpening = true;
+        startTransformPos = transform.position;
+        rb2d.velocity = new Vector2(0, -doorOpenSpeed);
+        yield return new WaitForSeconds(3f);
+    }
+
+    IEnumerator OpenDoor()
+    {
+        doorOpening = true;
+        startTransformPos = transform.position;
+        rb2d.velocity = new Vector2(0, doorOpenSpeed);
+        yield return new WaitForSeconds(1.25f);
+        yield return CloseDoor();
+    }
+
+    void OnTriggerStay2D(Collider2D collision)
+    {
+        if(collision.gameObject.GetComponent<NPC>() != null)
+        {
+            if (!doorOpening)
+            {
+                IEnumerator cor = OpenDoor();
+                StartCoroutine(cor);
+            }
+        }
+    }
+}

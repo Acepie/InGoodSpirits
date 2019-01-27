@@ -2,6 +2,7 @@
 
 public class Florist : NPC
 {
+    bool isHome = true;
     new protected void Awake()
     {
         base.Awake();
@@ -26,6 +27,27 @@ public class Florist : NPC
         if (!routines.isActioning)
         {
             StartRoutine();
+        }
+    }
+
+    public void OpenDoor()
+    {
+
+    }
+
+    public void OnDoorBellRang()
+    {
+        if (isHome)
+        {
+            OpenDoor();
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.tag == "Floorist Door")
+        {
+            isHome = !isHome;
         }
     }
 }
