@@ -42,6 +42,7 @@ public class DoEmote : IAction
 
   public IEnumerator DoAction()
   {
+        Debug.Log("Doing emote");
     npc.SetEmote(emote, true);
     if (audio != null)
     {
