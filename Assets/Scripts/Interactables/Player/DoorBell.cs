@@ -7,13 +7,14 @@ public class DoorBell : MonoBehaviour, PlayerInteractable
 {
     public UnityEvent doorBellRang = new UnityEvent();
     public AudioClip ringClip;
-    public Sprite normalSprite;
+    public Color normalSprite;
     public Sprite glowSprite;
     public SpriteRenderer sr;
 
     void Awake()
     {
         sr = GetComponent<SpriteRenderer>();
+        normalSprite = sr.color;
     }
     public void OnInteract(Player n)
     {
@@ -28,6 +29,6 @@ public class DoorBell : MonoBehaviour, PlayerInteractable
 
     private void OnMouseExit()
     {
-        sr.color = Color.white;
+        sr.color = normalSprite;
     }
 }
