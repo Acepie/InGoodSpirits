@@ -21,6 +21,7 @@ MonoBehaviour:
   - {fileID: 0}
   anim: {fileID: 0}
   currentFloor: 2
+  elevatorOffset: 0
   elevatorManager: {fileID: 0}
   direction: 0
   cookiePrefab: {fileID: 0}
@@ -92,21 +93,67 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7966555774204089379, guid: 2455a83bece49c648b6102f5e23d0a65,
+        type: 3}
+      propertyPath: m_Radius
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 723207556800096393, guid: 2455a83bece49c648b6102f5e23d0a65,
+        type: 3}
+      propertyPath: EmoteSlot
+      value: 
+      objectReference: {fileID: 391410421831733323}
+    - target: {fileID: 723207556800096395, guid: 2455a83bece49c648b6102f5e23d0a65,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 723207556800096395, guid: 2455a83bece49c648b6102f5e23d0a65,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 723207556800096395, guid: 2455a83bece49c648b6102f5e23d0a65,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 723207556800096395, guid: 2455a83bece49c648b6102f5e23d0a65,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 181178dde6d5b9847b43b0e27576247a,
+        type: 3}
     - target: {fileID: 723207556800096394, guid: 2455a83bece49c648b6102f5e23d0a65,
         type: 3}
       propertyPath: m_BodyType
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 723207555472972305, guid: 2455a83bece49c648b6102f5e23d0a65,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: 27.851276
+      objectReference: {fileID: 0}
+    - target: {fileID: 723207555472972305, guid: 2455a83bece49c648b6102f5e23d0a65,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 57.81259
+      objectReference: {fileID: 0}
+    - target: {fileID: 723207555472972305, guid: 2455a83bece49c648b6102f5e23d0a65,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: 0.55444336
+      objectReference: {fileID: 0}
+    - target: {fileID: 723207555472972305, guid: 2455a83bece49c648b6102f5e23d0a65,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 38.822617
       objectReference: {fileID: 0}
     - target: {fileID: 723207555472972304, guid: 2455a83bece49c648b6102f5e23d0a65,
         type: 3}
       propertyPath: myCol
       value: 
       objectReference: {fileID: 5553451657527173648}
-    - target: {fileID: 723207556800096393, guid: 2455a83bece49c648b6102f5e23d0a65,
-        type: 3}
-      propertyPath: EmoteSlot
-      value: 
-      objectReference: {fileID: 391410421831733323}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2455a83bece49c648b6102f5e23d0a65, type: 3}
 --- !u!1 &5553451656770539655 stripped
