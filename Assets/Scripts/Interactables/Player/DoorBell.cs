@@ -6,10 +6,11 @@ using UnityEngine.Events;
 public class DoorBell: MonoBehaviour, PlayerInteractable
 {
     public UnityEvent doorBellRang = new UnityEvent();
+    public AudioClip ringClip;
 
     public void OnInteract(Player n)
     {
-        Debug.Log("Interact");
+        SoundManager.PlaySound(ringClip);
         doorBellRang.Invoke();
     }
 }

@@ -5,10 +5,12 @@ using UnityEngine;
 public class EnableItem : IAction
 {
     public GameObject itemToEnable;
+    public AudioClip clipToPlay;
 
     public EnableItem(GameObject g)
     {
         itemToEnable = g;
+        clipToPlay = itemToEnable.GetComponent<PickupInteractable>().onPickupClip;
         Debug.Log(itemToEnable.name);
     }
 
@@ -21,7 +23,7 @@ public class EnableItem : IAction
         Debug.Log(Time.time);
         itemToEnable.GetComponent<Collider2D>().enabled = true;
         itemToEnable.GetComponent<SpriteRenderer>().enabled = true;
-        SoundManager.PlaySound(itemToEnable.GetComponent<AudioSource>());
+        SoundManager.PlaySound(clipToPlay);
         yield return null;
     }
 }

@@ -11,6 +11,7 @@ public class Door : MonoBehaviour
     public float maxDistMoved = 2f;
     private Vector2 startTransformPos;
     bool doorOpening = false;
+    public AudioClip clipToPlay;
 
     private void Awake()
     {
@@ -21,7 +22,6 @@ public class Door : MonoBehaviour
     {
         if (doorOpening && CalcDistanceTraveled() > maxDistMoved)
         {
-            doorOpening = false;
             rb2d.velocity = Vector2.zero;
             distTraveled = 0;
         }
@@ -37,6 +37,7 @@ public class Door : MonoBehaviour
         if (!doorOpening)
         {
             IEnumerator cor = OpenDoorCoroutine();
+            SoundManager.PlaySound(clipToPlay);
             StartCoroutine(cor);
         }
     }
@@ -47,6 +48,7 @@ public class Door : MonoBehaviour
         startTransformPos = transform.position;
         rb2d.velocity = new Vector2(0, -doorOpenSpeed);
         yield return new WaitForSeconds(3f);
+        doorOpening = false;
     }
 
     IEnumerator OpenDoorCoroutine()
@@ -56,6 +58,7 @@ public class Door : MonoBehaviour
         startTransformPos = transform.position;
         rb2d.velocity = new Vector2(0, doorOpenSpeed);
         yield return new WaitForSeconds(1.25f);
+        doorOpening = false;
         yield return CloseDoorCoroutine();
     }
 

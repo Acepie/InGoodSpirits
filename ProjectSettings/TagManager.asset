@@ -8,6 +8,10 @@ TagManager:
   - NPC
   - Emote Tag
   - Florist Door
+  - Lover Door
+  - Music Door
+  - Baker Door
+  - L_Waypoint
   layers:
   - Default
   - TransparentFX

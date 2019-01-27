@@ -2,6 +2,8 @@
 
 public class PickupInteractable : MonoBehaviour, PlayerInteractable
 {
+    [SerializeField]
+    public AudioClip onPickupClip;
     public virtual void OnInteract(Player p)
     {
         p.PickUp(this);
