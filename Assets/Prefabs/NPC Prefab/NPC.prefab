@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 723207555472972303}
   - component: {fileID: 723207555472972305}
   - component: {fileID: 723207555472972304}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: VisionChecker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -193,11 +193,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a94aab8ee007074c93a49eed735afff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  homePosition: {fileID: 0}
+  homeFloor: 0
   speed: 5
-  routines: {fileID: 0}
+  routineToDo: {fileID: 0}
   EmoteSlot: {fileID: 4789043975212558410}
   itemToCreate:
   - {fileID: 0}
+  anim: {fileID: 0}
+  currentFloor: 0
+  elevatorManager: {fileID: 0}
   direction: 0
 --- !u!114 &723207556800096392
 MonoBehaviour:
