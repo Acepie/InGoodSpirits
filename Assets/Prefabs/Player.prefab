@@ -207,6 +207,12 @@ MonoBehaviour:
   maxSpeed: 7.5
   controlLoss: 0
   itemPickupRadius: 2
+  bounds:
+    serializedVersion: 2
+    x: -13
+    y: 10
+    width: 18
+    height: 16
   isCarryingItem: 0
   isDiscoverable: 0
 --- !u!1 &3813238053756137216
