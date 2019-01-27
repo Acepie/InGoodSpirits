@@ -4,6 +4,14 @@ public class PickupInteractable : MonoBehaviour, PlayerInteractable
 {
   private Vector3 startScale;
     public AudioClip clipToPlay;
+    public Sprite normalSprite;
+    public Sprite glowSprite;
+    public SpriteRenderer sr;
+
+    void Awake()
+    {
+        sr = GetComponent<SpriteRenderer>();
+    }
 
   public virtual void OnInteract(Player p)
   {
@@ -19,4 +27,14 @@ public class PickupInteractable : MonoBehaviour, PlayerInteractable
     transform.parent = null;
     transform.localScale = startScale;
   }
+
+    private void OnMouseEnter()
+    {
+        sr.sprite = glowSprite;
+    }
+
+    private void OnMouseExit()
+    {
+        sr.sprite = normalSprite;   
+    }
 }

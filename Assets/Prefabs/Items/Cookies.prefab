@@ -27,6 +27,18 @@ PrefabInstance:
       propertyPath: clipToPlay
       value: 
       objectReference: {fileID: 8300000, guid: 507149539a0947e448ebd99c04b83f25, type: 3}
+    - target: {fileID: 7072177552022133522, guid: 08cdac9a3a9403b4bb322b3f5fa3fe49,
+        type: 3}
+      propertyPath: normalSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: b10b346192c19ad4abac03a583761672,
+        type: 3}
+    - target: {fileID: 7072177552022133522, guid: 08cdac9a3a9403b4bb322b3f5fa3fe49,
+        type: 3}
+      propertyPath: glowSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 11a1a35dd627aa74fb8a44c5a469db39,
+        type: 3}
     - target: {fileID: 5672337316930035632, guid: 08cdac9a3a9403b4bb322b3f5fa3fe49,
         type: 3}
       propertyPath: m_Sprite
