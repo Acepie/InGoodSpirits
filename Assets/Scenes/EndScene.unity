@@ -282,6 +282,7 @@ GameObject:
   m_Component:
   - component: {fileID: 141006856}
   - component: {fileID: 141006855}
+  - component: {fileID: 141006857}
   m_Layer: 0
   m_Name: baker-idle
   m_TagString: Untagged
@@ -352,6 +353,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &141006857
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 141006854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7f841f4ab5b15042ac848b30451da40, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &185623921
 GameObject:
   m_ObjectHideFlags: 0
@@ -1047,6 +1060,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1056686050}
   - component: {fileID: 1056686049}
+  - component: {fileID: 1056686051}
   m_Layer: 0
   m_Name: florist-idle
   m_TagString: Untagged
@@ -1117,6 +1131,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1056686051
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1056686048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24587306b5d814840b59dc64348658c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1139716317
 GameObject:
   m_ObjectHideFlags: 0
@@ -1196,6 +1222,75 @@ Transform:
   m_Father: {fileID: 916716439}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1306200269
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1382366418665711060, guid: 4111c466395aa43d596de83546749d6d,
+        type: 3}
+      propertyPath: m_Name
+      value: HouseGhostAudioManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 1382366418665711062, guid: 4111c466395aa43d596de83546749d6d,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1382366418665711062, guid: 4111c466395aa43d596de83546749d6d,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1382366418665711062, guid: 4111c466395aa43d596de83546749d6d,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1382366418665711062, guid: 4111c466395aa43d596de83546749d6d,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1382366418665711062, guid: 4111c466395aa43d596de83546749d6d,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1382366418665711062, guid: 4111c466395aa43d596de83546749d6d,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1382366418665711062, guid: 4111c466395aa43d596de83546749d6d,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1382366418665711062, guid: 4111c466395aa43d596de83546749d6d,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1382366418665711062, guid: 4111c466395aa43d596de83546749d6d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1382366418665711062, guid: 4111c466395aa43d596de83546749d6d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1382366418665711062, guid: 4111c466395aa43d596de83546749d6d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4111c466395aa43d596de83546749d6d, type: 3}
 --- !u!1 &1417857708
 GameObject:
   m_ObjectHideFlags: 0
@@ -1206,6 +1301,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1417857710}
   - component: {fileID: 1417857709}
+  - component: {fileID: 1417857711}
   m_Layer: 0
   m_Name: security-idle
   m_TagString: Untagged
@@ -1276,6 +1372,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1417857711
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1417857708}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 877a56c9131cf2a45aced8075dc2fe98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1419790065
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1876,6 +1984,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2108531886}
   - component: {fileID: 2108531885}
+  - component: {fileID: 2108531887}
   m_Layer: 0
   m_Name: lover-idle
   m_TagString: Untagged
@@ -1946,3 +2055,15 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2108531887
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2108531884}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f72cf11be870ef1479e730752602816f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
