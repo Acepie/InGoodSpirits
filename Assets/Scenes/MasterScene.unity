@@ -1551,11 +1551,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Lover Door
       objectReference: {fileID: 0}
-    - target: {fileID: 7840245527352491870, guid: 47d5c4b10572c274b9b474928c829ddc,
-        type: 3}
-      propertyPath: m_TagString
-      value: Florist Door
-      objectReference: {fileID: 0}
     - target: {fileID: 7840245527352491864, guid: 47d5c4b10572c274b9b474928c829ddc,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3534,53 +3529,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1448785924}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1498264999 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7840245527352491870, guid: 47d5c4b10572c274b9b474928c829ddc,
-    type: 3}
-  m_PrefabInstance: {fileID: 592386340}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1498265000 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7840245527352491864, guid: 47d5c4b10572c274b9b474928c829ddc,
     type: 3}
   m_PrefabInstance: {fileID: 592386340}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1498265001
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1498264999}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 511e95726f6f6cc429eceff20eeff44a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  distTraveled: 0
-  clipToPlay: {fileID: 0}
---- !u!50 &1498265002
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1498264999}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!114 &1579778523 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3963618741821460189, guid: 4585573e8cb2b254091f7ed02b941c85,
