@@ -16,6 +16,8 @@ public class VisionChecker : MonoBehaviour
   [SerializeField]
   private Sprite happyFace;
 
+    public bool isSecurityGuard = false;
+
   void Awake()
   {
     parent_Script = GetComponentInParent<NPC>();
@@ -40,7 +42,7 @@ public class VisionChecker : MonoBehaviour
     {
       Player player = col.gameObject.GetComponent<Player>();
 
-      if (is_playerDetectable && player.isCarryingItem)
+      if ((is_playerDetectable && player.isCarryingItem) || isSecurityGuard && is_playerDetectable)
       {
         float x_dist = col.gameObject.transform.position.x - gameObject.transform.position.x;
         if ((parent_Script.direction == NPC.FacingDirection.RIGHT && x_dist > 0)

@@ -2840,6 +2840,11 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 7.23
       objectReference: {fileID: 0}
+    - target: {fileID: 4491550494792483277, guid: 32e12c44e35a0384c8ab0830b2a2c93a,
+        type: 3}
+      propertyPath: isSecurityGuard
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 32e12c44e35a0384c8ab0830b2a2c93a, type: 3}
 --- !u!1 &936782587 stripped
@@ -4459,6 +4464,11 @@ PrefabInstance:
         type: 3}
       propertyPath: bounds.height
       value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 8838001690048026893, guid: ca893ca55dae35d44bd21c7de567a145,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ca893ca55dae35d44bd21c7de567a145, type: 3}
