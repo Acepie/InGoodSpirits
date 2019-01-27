@@ -195,24 +195,40 @@ public class Player : MonoBehaviour
     return clickedObject;
   }
 
+    private void DestryoRB2D()
+    {
+        try
+        {
+            Destroy(pickedUpItem.GetComponent<Rigidbody2D>());
+        }
+        catch { }
+    }
+
   public void PickUp(PickupInteractable api)
   {
     if (!isCarryingItem)
     {
       pickedUpItem = api.gameObject;
+            DestryoRB2D();
+            pickedUpItem.GetComponent<Collider2D>().enabled = false;
       isCarryingItem = true;
     }
     else
     {
       DropItem();
       pickedUpItem = api.gameObject;
-      isCarryingItem = true;
+            pickedUpItem.GetComponent<Collider2D>().enabled = false;
+            DestryoRB2D();
+            isCarryingItem = true;
     }
   }
 
   private void DropItem()
   {
     pickedUpItem.GetComponent<PickupInteractable>().Drop(transform.position);
-    isCarryingItem = false;
+        pickedUpItem.GetComponent<Collider2D>().enabled = true;
+        pickedUpItem.AddComponent<Rigidbody2D>();
+        pickedUpItem.GetComponent<Rigidbody2D>().gravityScale = 0;
+        isCarryingItem = false;
   }
 }

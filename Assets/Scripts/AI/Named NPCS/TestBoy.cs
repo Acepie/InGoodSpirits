@@ -10,9 +10,9 @@ public class TestBoy : NPC
   {
     base.Awake();
 
-    routines.AddAction(new MoveTo(new Vector2(-3, 6), this));
-    routines.AddAction(new Wait(.1f));
-    routines.AddAction(new UseElevator(this, Floor.Ground));
-    routines.AddAction(new MoveTo(new Vector2(3, -4.78f), this));
+    routineToDo.AddAction(new MoveTo(new Vector2(-3, 6), this));
+    routineToDo.AddAction(new Wait(.1f));
+    routineToDo.AddAction(new UseElevator(this, Floor.Ground));
+    routineToDo.AddAction(new MoveTo(new Vector2(3, -4.78f), this));
   }
 }

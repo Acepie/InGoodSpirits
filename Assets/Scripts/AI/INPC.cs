@@ -7,4 +7,5 @@ public interface INPC
     void AddAction(IAction a);
 
     void SetPos(Vector2 v);
+    void SetFloor(Floor f);
 }

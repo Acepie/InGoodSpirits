@@ -8,38 +8,44 @@ public class Musician : NPC
   new void Awake()
   {
     base.Awake();
+        currentFloor = Floor.First;
+        homeFloor = Floor.First;
   }
   // Use this for initialization
   private void Start()
   {
     soundToPlay = GetComponent<AudioClip>();
     SetRoutine();
+        normalRoutine = routineToDo.GetActions();
     StartRoutine();
   }
 
-  // Update is called once per frame
-  private void Update()
-  {
-  }
+    private void Update()
+    {
+        if (!routineToDo.isActioning)
+        {
+            StartRoutine();
+        }
+    }
 
-  private void SetRoutine()
+    private void SetRoutine()
   {
     new DoEmote(musicEmote, this, 0.1f);
-    routines.AddAction(new Wait(.25f));
-    routines.AddAction(new EnableItem(itemToCreate));
-    for (int i = 0; i < 5; ++i) MusicRoutine();
+    routineToDo.AddAction(new Wait(.25f));
+    routineToDo.AddAction(new EnableItem(itemToCreate));
+    MusicRoutine();
   }
 
   private void MusicRoutine()
   {
-    routines.AddAction(new DoEmote(musicEmote, soundToPlay, this, 5));
+    routineToDo.AddAction(new DoEmote(musicEmote, soundToPlay, this, 5));
     //routines.AddAction(new Wait(.1f));
-    routines.AddAction(new MoveTo(elevatorManager.GetDestinationPosition(Floor.First), this));
-    routines.AddAction(new UseElevator(this, Floor.Ground));
-    routines.AddAction(new MoveTo(new Vector2(15, elevatorManager.GetDestinationPosition(Floor.Ground).y), this));
-    routines.AddAction(new Wait(.5f));
-    routines.AddAction(new MoveTo(elevatorManager.GetDestinationPosition(Floor.Ground), this));
-    routines.AddAction(new UseElevator(this, Floor.First));
-    routines.AddAction(new MoveTo(new Vector2(4, elevatorManager.GetDestinationPosition(Floor.First).y), this));
+    routineToDo.AddAction(new MoveTo(elevatorManager.GetDestinationPosition(Floor.First), this));
+    routineToDo.AddAction(new UseElevator(this, Floor.Ground));
+    routineToDo.AddAction(new MoveTo(new Vector2(20, elevatorManager.GetDestinationPosition(Floor.Ground).y), this));
+    routineToDo.AddAction(new Wait(.1f));
+    routineToDo.AddAction(new MoveTo(elevatorManager.GetDestinationPosition(Floor.Ground), this));
+    routineToDo.AddAction(new UseElevator(this, Floor.First));
+    routineToDo.AddAction(new MoveTo(GameObject.Find("Musician Room Waypoint").transform.position, this));
   }
 }

@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class FloristDoor : Door
 {
-  protected override bool CheckOpenDoor(Collider2D collision)
-  {
-    return collision.tag == "NPC" && collision.name != "Lover" && !doorOpening;
-  }
+    protected override bool CheckOpenDoor(Collider2D collision)
+    {
+        return collision.tag == "NPC" && collision.name != "Lover" && !doorOpening;
+    }
+
 }

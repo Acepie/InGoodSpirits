@@ -31,15 +31,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90e74e2231871374aae7cb22d63b9ff0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  homePosition: {fileID: 0}
+  homeFloor: 1
   speed: 5
-  routines: {fileID: 0}
+  routineToDo: {fileID: 0}
   EmoteSlot: {fileID: 0}
   itemToCreate:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  anim: {fileID: 0}
+  anim: {fileID: 4019014780298485039}
+  currentFloor: 1
+  elevatorManager: {fileID: 0}
   direction: 0
   soundToPlay: {fileID: 8300000, guid: 4997bd093d0c0444a8cc56c4726cfca0, type: 3}
   musicEmote: {fileID: 21300000, guid: b9a1163b67c74b147abcfd92ccb4baf6, type: 3}
@@ -58,32 +62,32 @@ PrefabInstance:
     - target: {fileID: 723207556800096396, guid: 2455a83bece49c648b6102f5e23d0a65,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -1.8896661
       objectReference: {fileID: 0}
     - target: {fileID: 723207556800096396, guid: 2455a83bece49c648b6102f5e23d0a65,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 5.1547985
       objectReference: {fileID: 0}
     - target: {fileID: 723207556800096396, guid: 2455a83bece49c648b6102f5e23d0a65,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -0.043307293
       objectReference: {fileID: 0}
     - target: {fileID: 723207556800096396, guid: 2455a83bece49c648b6102f5e23d0a65,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 723207556800096396, guid: 2455a83bece49c648b6102f5e23d0a65,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 723207556800096396, guid: 2455a83bece49c648b6102f5e23d0a65,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 723207556800096396, guid: 2455a83bece49c648b6102f5e23d0a65,
         type: 3}
@@ -110,6 +114,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 723207556800096396, guid: 2455a83bece49c648b6102f5e23d0a65,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 723207556800096396, guid: 2455a83bece49c648b6102f5e23d0a65,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 723207556800096396, guid: 2455a83bece49c648b6102f5e23d0a65,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 723207556800096395, guid: 2455a83bece49c648b6102f5e23d0a65,
         type: 3}
       propertyPath: m_Sprite
@@ -133,16 +152,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6677760606824192491, guid: 2455a83bece49c648b6102f5e23d0a65,
         type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6677760606824192491, guid: 2455a83bece49c648b6102f5e23d0a65,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6677760606824192491, guid: 2455a83bece49c648b6102f5e23d0a65,
-        type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.75
       objectReference: {fileID: 0}
@@ -150,6 +159,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.y
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6677760606824192491, guid: 2455a83bece49c648b6102f5e23d0a65,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6677760606824192491, guid: 2455a83bece49c648b6102f5e23d0a65,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 723207555472972304, guid: 2455a83bece49c648b6102f5e23d0a65,
         type: 3}

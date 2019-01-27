@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &7840245527352491870
+--- !u!1 &1537197160384675537
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,39 +8,39 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 7840245527352491864}
-  - component: {fileID: 7840245527352491871}
-  - component: {fileID: 5774956583519841476}
-  - component: {fileID: 1797266118}
-  - component: {fileID: 7295404258049773875}
+  - component: {fileID: 1537197160384675551}
+  - component: {fileID: 1537197160384675536}
+  - component: {fileID: 1537197160384675549}
+  - component: {fileID: 1537197160384675550}
+  - component: {fileID: 7952070264360529636}
   m_Layer: 0
-  m_Name: Door
-  m_TagString: Baker Door
+  m_Name: Lover BG
+  m_TagString: Baker Room
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &7840245527352491864
+--- !u!4 &1537197160384675551
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7840245527352491870}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.66, y: 6.23, z: -0.24609375}
-  m_LocalScale: {x: 0.5, y: 0.41, z: 1}
+  m_GameObject: {fileID: 1537197160384675537}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -8.629, y: 2.135, z: 0}
+  m_LocalScale: {x: 1.5182848, y: 1.4489145, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &7840245527352491871
+--- !u!212 &1537197160384675536
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7840245527352491870}
+  m_GameObject: {fileID: 1537197160384675537}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -71,76 +71,65 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 7cf0a22cd76e86c44a31ad5eb4411bec, type: 3}
-  m_Color: {r: 0.7529412, g: 0.7529412, b: 0.7529412, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 85d969af22504f047a90e817e5162512, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.16, y: 0.16}
+  m_Size: {x: 4.41, y: 3.31}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &5774956583519841476
+--- !u!61 &1537197160384675549
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7840245527352491870}
+  m_GameObject: {fileID: 1537197160384675537}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.010141611, y: 0.121697426}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.53, y: 5.96}
-    newSize: {x: 0.16, y: 0.16}
+    oldSize: {x: 4.41, y: 3.31}
+    newSize: {x: 4.41, y: 3.31}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.25, y: 7.7339945}
+  m_Size: {x: 4.41, y: 3.31}
   m_EdgeRadius: 0
---- !u!114 &1797266118
+--- !u!114 &1537197160384675550
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7840245527352491870}
+  m_GameObject: {fileID: 1537197160384675537}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 511e95726f6f6cc429eceff20eeff44a, type: 3}
+  m_Script: {fileID: 11500000, guid: 7a28982744b1ef046892c5c67967fa0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  doorOpenSpeed: 20
-  maxDistMoved: 2
-  clipToPlay: {fileID: 0}
---- !u!50 &7295404258049773875
-Rigidbody2D:
-  serializedVersion: 4
+  npc: {fileID: 0}
+--- !u!114 &7952070264360529636
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7840245527352491870}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
+  m_GameObject: {fileID: 1537197160384675537}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a10630b47f957134388046c0f2ac2c52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -15,25 +15,32 @@ public class NPC : MonoBehaviour, INPC
 {
 
   public enum FacingDirection { RIGHT, LEFT };
+    public GameObject homePosition;
+    protected bool swapNextRoutine = false;
+    public Floor homeFloor;
 
   public float speed;
   Rigidbody2D rb2d;
   IEnumerator coroutine;
-  public Routine routines;
+    protected Queue<IAction> normalRoutine = new Queue<IAction>();
+    public Routine routineToDo;
+    protected Queue<IAction> nextRoutine = new Queue<IAction>();
   [SerializeField]
   public SpriteRenderer EmoteSlot;
+    [SerializeField]
   public HashSet<NPC> friendSet;
   public GameObject[] itemToCreate;
   public Animator anim;
+    public Floor currentFloor;
 
-  protected ElevatorManager elevatorManager;
+  public ElevatorManager elevatorManager;
   public FacingDirection direction = FacingDirection.RIGHT;
 
   protected void Awake()
   {
     anim = GetComponent<Animator>();
     rb2d = GetComponent<Rigidbody2D>();
-    routines = GetComponent<Routine>();
+    routineToDo = GetComponent<Routine>();
     elevatorManager = GameObject.FindGameObjectWithTag("Elevator Manager").GetComponent<ElevatorManager>();
     friendSet = new HashSet<NPC>();
     SetEmoteSlot();
@@ -90,7 +97,7 @@ public class NPC : MonoBehaviour, INPC
 
   public void AddAction(IAction a)
   {
-    routines.AddAction(a);
+    routineToDo.AddAction(a);
   }
 
   public Vector2 GetPos()
@@ -114,7 +121,7 @@ public class NPC : MonoBehaviour, INPC
 
   protected void StartRoutine()
   {
-    routines.StartRoutine();
+        routineToDo.StartRoutine();
   }
 
   public void SetEmoteVisibility(bool i_visible)
@@ -133,4 +140,47 @@ public class NPC : MonoBehaviour, INPC
   {
     return friendSet.Contains(npc);
   }
+
+    public void SetFloor(Floor f)
+    {
+        currentFloor = f;
+    }
+  
+
+    public void SetNextRoutine(Queue<IAction> r)
+    {
+        nextRoutine = r;
+        swapNextRoutine = true;
+    }
+
+    public virtual void GetNextRoutine()
+    {
+        Debug.Log("next routine for " + this.name);
+        if (swapNextRoutine)
+        {
+            routineToDo.SetActions(nextRoutine);
+            swapNextRoutine = false;
+        }
+        else
+        {
+            routineToDo.SetActions(normalRoutine);
+        }
+    }
+    /// <summary>
+    /// /Return home from a specfiic floor
+    /// </summary>
+    /// <param name="f"></param>
+    /// <returns></returns>
+    public Queue<IAction> ReturnHomeRoutine(Floor f)
+    {
+        Queue<IAction> res = new Queue<IAction>();
+        if(f != homeFloor)
+        {
+            res.Enqueue(new MoveTo(elevatorManager.GetDestinationPosition(f), this));
+            res.Enqueue(new UseElevator(this, homeFloor));
+        }
+        res.Enqueue(new MoveTo(homePosition.transform.position, this));
+        res.Enqueue(new Wait(0.25f));
+        return res;
+    }
 }

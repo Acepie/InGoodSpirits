@@ -16,6 +16,12 @@ TagManager:
   - Baker Door
   - L_Waypoint
   - Front Door
+  - Cookie
+  - Baker Room
+  - Lobby Room
+  - Florist Room
+  - Lover Room
+  - Invites
   layers:
   - Default
   - TransparentFX
@@ -26,12 +32,12 @@ TagManager:
   - 
   - 
   - NPC
-  - FloorWalls
+  - Floor
   - Items
-  - 
-  - 
-  - 
-  - 
+  - OuterWalls
+  - Player
+  - InnerWalls
+  - Vision
   - 
   - 
   - 

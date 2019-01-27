@@ -20,6 +20,11 @@ public class Routine : MonoBehaviour
         return actions;
     }
 
+    public void SetActions(Queue<IAction> r)
+    {
+        actions = r;
+    }
+
     public void ClearActions()
     {
         actions.Clear();
@@ -45,5 +50,6 @@ public class Routine : MonoBehaviour
             yield return StartCoroutine(actionCoroutine);
         }
         isActioning = false;
+        GetComponent<NPC>().GetNextRoutine();
     }
 }

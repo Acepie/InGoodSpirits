@@ -14,25 +14,37 @@ public class Lover : NPC {
     new protected void Awake()
     {
         base.Awake();
+        currentFloor = Floor.First;
+        homeFloor = Floor.First;
+    }
+
+    private void SetRoutine()
+    {
         //chill
-        routines.AddAction(new Wait(.25f));
+        routineToDo.AddAction(new Wait(.25f));
         //Go To lover's room
-        routines.AddAction(new MoveTo(elevatorManager.GetDestinationPosition(Floor.First), this));
-        routines.AddAction(new UseElevator(this, Floor.Second));
-        routines.AddAction(new MoveTo(GameObject.Find("Florist Door Dest").transform.position, this));
-        routines.AddAction(new Wait(.1f));
-        routines.AddAction(new DoEmote(sadEmote, source, this, 3));
-        
+        routineToDo.AddAction(new MoveTo(elevatorManager.GetDestinationPosition(Floor.First), this));
+        routineToDo.AddAction(new UseElevator(this, Floor.Second));
+        routineToDo.AddAction(new MoveTo(GameObject.Find("Florist Room Dest").transform.position, this));
+        routineToDo.AddAction(new Wait(.1f));
+        routineToDo.AddAction(new DoEmote(sadEmote, source, this, 3));
 
         //Go back to his room
-        routines.AddAction(new MoveTo(elevatorManager.GetDestinationPosition(Floor.Second), this));
-        routines.AddAction(new UseElevator(this, Floor.First));
-        routines.AddAction(new MoveTo(GameObject.FindGameObjectWithTag("L_Waypoint").transform.position, this));
+        routineToDo.AddAction(new MoveTo(elevatorManager.GetDestinationPosition(Floor.Second), this));
+        routineToDo.AddAction(new UseElevator(this, Floor.First));
+        routineToDo.AddAction(new MoveTo(GameObject.FindGameObjectWithTag("L_Waypoint").transform.position, this));
+    }
+
+    private void Start()
+    {
+        SetRoutine();
+        normalRoutine = routineToDo.GetActions();
+        StartRoutine();
     }
 
     private void Update()
     {
-        if (!routines.isActioning)
+        if (!routineToDo.isActioning)
         {
             StartRoutine();
         }

@@ -4,25 +4,39 @@ using UnityEngine;
 
 public class EnableItem : IAction
 {
-  public GameObject[] itemToEnable;
+    public GameObject[] itemToEnable;
+    public GameObject prefabToCreate;
+    Vector3 locationToMakeItem;
 
   public EnableItem(GameObject[] g)
   {
     itemToEnable = g;
   }
 
-  public void SetItem(GameObject[] i)
-  {
-    itemToEnable = i;
-  }
+    public EnableItem(GameObject g, Vector3 pos)
+    {
+        prefabToCreate = g;
+        locationToMakeItem = pos;
+        itemToEnable = new GameObject[0];
+    }
+
   public IEnumerator DoAction()
   {
-    foreach (GameObject item in itemToEnable)
-    {
-      item.GetComponent<Collider2D>().enabled = true;
-      item.GetComponent<SpriteRenderer>().enabled = true;
-      SoundManager.PlaySound(item.GetComponent<PickupInteractable>().clipToPlay);
-    }
+        if(itemToEnable.Length > 0)
+        {
+            foreach (GameObject item in itemToEnable)
+            {
+                item.GetComponent<Collider2D>().enabled = true;
+                item.GetComponent<SpriteRenderer>().enabled = true;
+                SoundManager.PlaySound(item.GetComponent<PickupInteractable>().clipToPlay);
+            }
+        }
+        else
+        {
+            GameObject newItem = Object.Instantiate(prefabToCreate) as GameObject;
+            newItem.transform.position = locationToMakeItem;
+        }
+
     yield return null;
   }
 }
