@@ -3103,6 +3103,9 @@ MonoBehaviour:
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   ringClip: {fileID: 0}
+  normalSprite: {fileID: 0}
+  glowSprite: {fileID: 0}
+  sr: {fileID: 0}
 --- !u!212 &1218079875
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3141,7 +3144,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  m_Color: {r: 0.6779394, g: 0, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
