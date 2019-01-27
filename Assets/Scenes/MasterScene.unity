@@ -4488,6 +4488,7 @@ GameObject:
   - component: {fileID: 2090092989}
   - component: {fileID: 2090092988}
   - component: {fileID: 2090092987}
+  - component: {fileID: 2090092990}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -4559,6 +4560,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2090092990
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2090092986}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c95fc44cd11e204785cce301ef67b71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2100054428 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3811873872575873279, guid: edb4419c7b7e3244d9084b48a4bffcc4,
@@ -4577,6 +4590,31 @@ PrefabInstance:
       propertyPath: m_Name
       value: Musician
       objectReference: {fileID: 0}
+    - target: {fileID: 6833405372214214987, guid: fb2aff88ee0449b449ce6f87a191d31d,
+        type: 3}
+      propertyPath: homePosition
+      value: 
+      objectReference: {fileID: 1063536904}
+    - target: {fileID: 6833405372214214987, guid: fb2aff88ee0449b449ce6f87a191d31d,
+        type: 3}
+      propertyPath: itemToCreate.Array.data[0]
+      value: 
+      objectReference: {fileID: 2145114151}
+    - target: {fileID: 6833405372214214987, guid: fb2aff88ee0449b449ce6f87a191d31d,
+        type: 3}
+      propertyPath: itemToCreate.Array.data[1]
+      value: 
+      objectReference: {fileID: 1698886438}
+    - target: {fileID: 6833405372214214987, guid: fb2aff88ee0449b449ce6f87a191d31d,
+        type: 3}
+      propertyPath: itemToCreate.Array.data[2]
+      value: 
+      objectReference: {fileID: 2111970300}
+    - target: {fileID: 6833405372214214987, guid: fb2aff88ee0449b449ce6f87a191d31d,
+        type: 3}
+      propertyPath: itemToCreate.Array.data[3]
+      value: 
+      objectReference: {fileID: 1003106552}
     - target: {fileID: 8606799893975327127, guid: fb2aff88ee0449b449ce6f87a191d31d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4632,31 +4670,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6833405372214214987, guid: fb2aff88ee0449b449ce6f87a191d31d,
-        type: 3}
-      propertyPath: homePosition
-      value: 
-      objectReference: {fileID: 1063536904}
-    - target: {fileID: 6833405372214214987, guid: fb2aff88ee0449b449ce6f87a191d31d,
-        type: 3}
-      propertyPath: itemToCreate.Array.data[0]
-      value: 
-      objectReference: {fileID: 2145114151}
-    - target: {fileID: 6833405372214214987, guid: fb2aff88ee0449b449ce6f87a191d31d,
-        type: 3}
-      propertyPath: itemToCreate.Array.data[1]
-      value: 
-      objectReference: {fileID: 1698886438}
-    - target: {fileID: 6833405372214214987, guid: fb2aff88ee0449b449ce6f87a191d31d,
-        type: 3}
-      propertyPath: itemToCreate.Array.data[2]
-      value: 
-      objectReference: {fileID: 2111970300}
-    - target: {fileID: 6833405372214214987, guid: fb2aff88ee0449b449ce6f87a191d31d,
-        type: 3}
-      propertyPath: itemToCreate.Array.data[3]
-      value: 
-      objectReference: {fileID: 1003106552}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fb2aff88ee0449b449ce6f87a191d31d, type: 3}
 --- !u!1 &2111970300 stripped

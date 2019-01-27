@@ -39,12 +39,16 @@ public class TimeText : MonoBehaviour
     string hours = hours_val.ToString();
 
 
-    float minutes_pct = gameTime - Mathf.Floor(gameTime);
+    float minutes_amount = (gameTime - Mathf.Floor(gameTime)) * 60;
 
-    string minutes = (minutes_pct * 60).ToString();
+    string minutes = minutes_amount.ToString();
+    if (minutes_amount < 10)
+    {
+      minutes = "0" + minutes;
+    }
     if (minutes.Length > 2)
     {
-      minutes = (minutes_pct * 60).ToString().Substring(0, 2);
+      minutes = minutes.Substring(0, 2);
     }
 
     return hours + ":" + minutes + " " + m;
