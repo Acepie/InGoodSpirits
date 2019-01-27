@@ -60,7 +60,7 @@ public class Door : MonoBehaviour
 
   void OnTriggerStay2D(Collider2D collision)
   {
-    if (collision.gameObject.GetComponent<NPC>() != null)
+    if (collision.tag == "NPC")
     {
       if (!doorOpening)
       {
