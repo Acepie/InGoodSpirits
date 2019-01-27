@@ -64,6 +64,7 @@ public class Player : MonoBehaviour
 
   private bool ItemWithinRadius(Vector3 itemPos)
   {
+    Debug.Log(itemPos + " " + transform.position);
     return Vector3.Distance(itemPos, transform.position) < itemPickupRadius;
   }
 
@@ -126,6 +127,7 @@ public class Player : MonoBehaviour
     if (left)
     {
       eyeAnim.GetComponent<SpriteRenderer>().flipX = false;
+      bodyAnim.GetComponent<SpriteRenderer>().flipX = false;
       if (velocity.x > -.25) velocity.x = -initSpeed;
       velocity.x = velocity.x * speedGain;
     }
@@ -133,6 +135,7 @@ public class Player : MonoBehaviour
     if (right)
     {
       eyeAnim.GetComponent<SpriteRenderer>().flipX = true;
+      bodyAnim.GetComponent<SpriteRenderer>().flipX = true;
       if (velocity.x < .25) velocity.x = initSpeed;
       velocity.x = velocity.x * speedGain;
     }
@@ -190,7 +193,7 @@ public class Player : MonoBehaviour
   {
     GameObject clickedObject = null;
     Camera cam = Camera.main;
-    RaycastHit2D hit = Physics2D.Raycast(cam.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
+    RaycastHit2D hit = Physics2D.Raycast(cam.ScreenToWorldPoint(Input.mousePosition), Vector2.zero, Mathf.Infinity, LayerMask.GetMask("Items"));
     if (hit.collider != null)
     {
       clickedObject = hit.collider.gameObject;
