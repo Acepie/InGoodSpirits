@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class VisionChecker : MonoBehaviour
 {
@@ -50,9 +51,9 @@ public class VisionChecker : MonoBehaviour
         else
         {
           parent_Script.SetEmote(alerted_sprite, true);
-          IEnumerator cor = BeginEndGameCor(4);
+          IEnumerator cor = BeginEndGameCor(1);
           StartCoroutine(cor);
-          
+
         }
       }
     }
@@ -86,6 +87,6 @@ public class VisionChecker : MonoBehaviour
   IEnumerator BeginEndGameCor(float timetoEnd)
   {
     yield return new WaitForSeconds(timetoEnd);
-    Application.LoadLevel(Application.loadedLevel);
+    SceneManager.LoadScene("FailScene");
   }
 }

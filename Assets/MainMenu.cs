@@ -6,12 +6,13 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 {
 
-    // Update is called once per frame
-    void Update()
+  // Update is called once per frame
+  void Update()
+  {
+    if (Input.GetKeyDown("space"))
     {
-        if (Input.GetKeyDown("space"))
-        {
-            SceneManager.LoadScene("MasterScene");
-        }
+      TimeManager.ResetTime();
+      SceneManager.LoadScene("MasterScene");
     }
+  }
 }
