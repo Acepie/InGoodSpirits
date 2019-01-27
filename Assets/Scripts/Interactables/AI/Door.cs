@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class Door : MonoBehaviour
 {
-
-  public float doorOpenSpeed;
-  Rigidbody2D rb2d;
-  private float distTraveled;
-  public float maxDistMoved = 2f;
-  private Vector2 startTransformPos;
-  bool doorOpening = false;
+    public float doorOpenSpeed;
+    Rigidbody2D rb2d;
+    private float distTraveled;
+    public float maxDistMoved = 2f;
+    private Vector2 startTransformPos;
+    bool doorOpening = false;
+    public AudioClip clipToPlay;
 
   private void Awake()
   {
@@ -24,6 +24,7 @@ public class Door : MonoBehaviour
       doorOpening = false;
       rb2d.velocity = Vector2.zero;
       distTraveled = 0;
+
     }
   }
 
@@ -36,36 +37,38 @@ public class Door : MonoBehaviour
   {
     if (!doorOpening)
     {
-      IEnumerator cor = OpenDoorCoroutine();
-      StartCoroutine(cor);
+        IEnumerator cor = OpenDoorCoroutine();
+        SoundManager.PlaySound(clipToPlay);
+        StartCoroutine(cor);
     }
   }
 
-  public IEnumerator CloseDoorCoroutine()
-  {
-    doorOpening = true;
-    startTransformPos = transform.position;
-    rb2d.velocity = new Vector2(0, -doorOpenSpeed);
-    yield return new WaitForSeconds(3f);
-  }
+    public IEnumerator CloseDoorCoroutine()
+    {
+        doorOpening = true;
+        startTransformPos = transform.position;
+        rb2d.velocity = new Vector2(0, -doorOpenSpeed);
+        yield return new WaitForSeconds(3f);
+        doorOpening = false;
+    }
 
-  IEnumerator OpenDoorCoroutine()
-  {
-    doorOpening = true;
-    startTransformPos = transform.position;
-    rb2d.velocity = new Vector2(0, doorOpenSpeed);
-    yield return new WaitForSeconds(1.25f);
-    yield return CloseDoorCoroutine();
-  }
+    IEnumerator OpenDoorCoroutine()
+    {
+        Debug.Log(this.name);
+        doorOpening = true;
+        startTransformPos = transform.position;
+        rb2d.velocity = new Vector2(0, doorOpenSpeed);
+        yield return new WaitForSeconds(1.25f);
+        doorOpening = false;
+        yield return CloseDoorCoroutine();
+    }
 
   void OnTriggerStay2D(Collider2D collision)
   {
-    if (collision.gameObject.GetComponent<NPC>() != null)
+    if (collision.tag == "NPC")
     {
       if (!doorOpening)
       {
-        /*IEnumerator cor = OpenDoorCoroutine();
-        StartCoroutine(cor);*/
         OpenDoor();
       }
     }

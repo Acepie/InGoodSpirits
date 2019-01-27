@@ -12,10 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1df1ee6283734d40bab5fe0d12c48a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0
+  speed: 7
   routines: {fileID: 0}
-  itemToCreate: {fileID: 0}
   EmoteSlot: {fileID: 0}
+  itemToCreate:
+  - {fileID: 0}
+  direction: 0
 --- !u!1001 &5122998144013858817
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -83,11 +85,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2450660258486646588, guid: 2455a83bece49c648b6102f5e23d0a65,
-        type: 3}
-      propertyPath: m_TagString
-      value: Emote Tag
-      objectReference: {fileID: 0}
     - target: {fileID: 723207555472972304, guid: 2455a83bece49c648b6102f5e23d0a65,
         type: 3}
       propertyPath: parent_Script
@@ -98,6 +95,11 @@ PrefabInstance:
       propertyPath: myCol
       value: 
       objectReference: {fileID: 5553451657527173648}
+    - target: {fileID: 2450660258486646588, guid: 2455a83bece49c648b6102f5e23d0a65,
+        type: 3}
+      propertyPath: m_TagString
+      value: Emote Tag
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 723207556800096393, guid: 2455a83bece49c648b6102f5e23d0a65, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 2455a83bece49c648b6102f5e23d0a65, type: 3}
