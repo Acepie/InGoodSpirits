@@ -311,6 +311,24 @@ PrefabInstance:
       propertyPath: myCol
       value: 
       objectReference: {fileID: 4491550494792483276}
+    - target: {fileID: 723207555472972304, guid: 2455a83bece49c648b6102f5e23d0a65,
+        type: 3}
+      propertyPath: alerted_sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 50192e8157de52545bd1b95f1a3c6a16,
+        type: 3}
+    - target: {fileID: 723207555472972304, guid: 2455a83bece49c648b6102f5e23d0a65,
+        type: 3}
+      propertyPath: happyFace
+      value: 
+      objectReference: {fileID: 21300000, guid: f7f4ed161aa37844b8fc263be2970ae0,
+        type: 3}
+    - target: {fileID: 723207555472972304, guid: 2455a83bece49c648b6102f5e23d0a65,
+        type: 3}
+      propertyPath: suspicious_sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 774ff29701c6a624bb70218c1fc1bd28,
+        type: 3}
     m_RemovedComponents:
     - {fileID: 723207556800096393, guid: 2455a83bece49c648b6102f5e23d0a65, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 2455a83bece49c648b6102f5e23d0a65, type: 3}
