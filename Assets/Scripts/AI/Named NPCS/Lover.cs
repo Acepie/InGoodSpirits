@@ -13,6 +13,7 @@ public class Lover : NPC
   public Sprite sadEmote;
 
   public bool hasBouquet = true;
+  public bool atDoor = false;
 
   new protected void Awake()
   {
@@ -57,6 +58,7 @@ public class Lover : NPC
 
   private void Update()
   {
+    atDoor = Vector2.Distance(gameObject.transform.position, GameObject.Find("Florist Room Dest").transform.position) < 3;
     anim.SetBool("bouquet", hasBouquet);
     if (!routineToDo.isActioning)
     {
