@@ -2,6 +2,7 @@
 
 public class Musician : NPC
 {
+    public AudioSource soundToPlay;
     [SerializeField]
     public Sprite musicEmote;
     new void Awake()
@@ -11,6 +12,7 @@ public class Musician : NPC
     // Use this for initialization
     private void Start()
     {
+        soundToPlay = GetComponent<AudioSource>();
         SetRoutine();
         StartRoutine();
     }
@@ -22,6 +24,7 @@ public class Musician : NPC
 
     private void SetRoutine()
     {
+        new DoEmote(musicEmote, this, 0.1f);
         routines.AddAction(new Wait(.25f));
         routines.AddAction(new EnableItem(itemToCreate));
         for(int i = 0; i<5; ++i) MusicRoutine();
@@ -29,7 +32,8 @@ public class Musician : NPC
 
     private void MusicRoutine()
     {
-        routines.AddAction(new Wait(.1f));
+        routines.AddAction(new DoEmote(musicEmote, soundToPlay, this, 5));
+        //routines.AddAction(new Wait(.1f));
         routines.AddAction(new MoveTo(elevatorManager.GetDestinationPosition(Floor.First), this));
         routines.AddAction(new UseElevator(this, Floor.Ground));
         routines.AddAction(new MoveTo(new Vector2(15, elevatorManager.GetDestinationPosition(Floor.Ground).y), this));
