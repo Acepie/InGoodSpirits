@@ -9,7 +9,7 @@ public class Player : MonoBehaviour
   public float controlLoss = 0;
   public float itemPickupRadius = 1f;
   private int tick = 0;
-  private Rect bounds = new Rect(-8.5f, 7.3f, 17, 14.5f);
+  private Rect bounds = new Rect(-10f, 9f, 17, 14.5f);
   private Rigidbody2D rb2d;
   private PlayerInteractable interactableHoveringOver;
 
@@ -64,7 +64,6 @@ public class Player : MonoBehaviour
 
   private bool ItemWithinRadius(Vector3 itemPos)
   {
-    //Debug.Log(itemPos + " " + transform.position);
     return Vector3.Distance(itemPos, transform.position) < itemPickupRadius;
   }
 
@@ -166,11 +165,6 @@ public class Player : MonoBehaviour
     return velocity;
   }
 
-  private void eyeAnimTransition(string anim)
-  {
-    //Debug.Log(eyeAnim.GetCurrentAnimatorStateInfo(0));
-  }
-
   private void OnHover()
   {
     GameObject go = GameObjectBelowMouse();
@@ -183,7 +177,6 @@ public class Player : MonoBehaviour
         if (mb is PlayerInteractable && ItemWithinRadius(mb.transform.position))
         {
           interactableHoveringOver = (PlayerInteractable)mb;
-          Debug.Log("Close and over");
         }
       }
     }

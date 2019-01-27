@@ -10,6 +10,7 @@ TagManager:
   - ghostEyes
   - NPC
   - Emote Tag
+  - Florist Door
   layers:
   - Default
   - TransparentFX
@@ -19,6 +20,8 @@ TagManager:
   - UI
   - 
   - 
+  - NPC
+  - FloorWalls
   - Items
   - 
   - 
