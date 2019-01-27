@@ -10,13 +10,14 @@ public class SecurityGuard : NPC
     Wait alertACtion = new Wait(1f);
     public Sprite sleepy;
     DoEmote notAlertAction;
+    public SpriteRenderer vision;
 
     private new void Awake()
     {
         base.Awake();
         currentFloor = Floor.Ground;
         visionChecker = GetComponentInChildren<VisionChecker>();
-
+        vision = GetComponentInChildren<VisionChecker>().GetComponent<SpriteRenderer>();
         notAlertAction  = new DoEmote(sleepy, this, 5f);
     }
 
@@ -56,12 +57,14 @@ public class SecurityGuard : NPC
                 routineToDo.ClearActions();
                 routineToDo.AddAction(alertACtion);
                 visionChecker.GetComponent<Collider2D>().enabled = true;
+                vision.enabled = true;
             }
             else
             {
                 routineToDo.ClearActions();
                 routineToDo.AddAction(notAlertAction);
                 visionChecker.GetComponent<Collider2D>().enabled = false;
+                vision.enabled = false;
             }
         }
     }
