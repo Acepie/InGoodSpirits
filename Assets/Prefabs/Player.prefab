@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8195586172345018679}
   - component: {fileID: 8485359919091010931}
   - component: {fileID: 971081327387990555}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: ghostBody
   m_TagString: ghostBody
   m_Icon: {fileID: 0}
@@ -129,7 +129,7 @@ GameObject:
   - component: {fileID: 3526457326901626405}
   - component: {fileID: 3526457326901626394}
   - component: {fileID: 3526457326901626395}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -176,7 +176,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3526457326901626392}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -221,7 +221,7 @@ GameObject:
   - component: {fileID: 8838001690048026893}
   - component: {fileID: 1152032766201116274}
   - component: {fileID: 4247405136518165269}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: ghostEyes
   m_TagString: ghostEyes
   m_Icon: {fileID: 0}

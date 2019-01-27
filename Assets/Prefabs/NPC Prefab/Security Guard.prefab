@@ -1,5 +1,29 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &1257212316263644712
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4491550495650673499}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 747e70a849dabbd4a8a23a18fb3b718d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  homePosition: {fileID: 0}
+  homeFloor: 0
+  speed: 5
+  routineToDo: {fileID: 0}
+  EmoteSlot: {fileID: 8514743454956958615}
+  itemToCreate: []
+  anim: {fileID: 0}
+  currentFloor: 0
+  elevatorManager: {fileID: 0}
+  direction: 1
+  sleepy: {fileID: 21300000, guid: 08a209ea6ebb2be46ae79791de12eaf3, type: 3}
+  vision: {fileID: 0}
 --- !u!212 &924959601
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -48,30 +72,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1257212316263644712
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4491550495650673499}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 747e70a849dabbd4a8a23a18fb3b718d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  homePosition: {fileID: 0}
-  homeFloor: 0
-  speed: 5
-  routineToDo: {fileID: 0}
-  EmoteSlot: {fileID: 8514743454956958615}
-  itemToCreate: []
-  anim: {fileID: 0}
-  currentFloor: 0
-  elevatorManager: {fileID: 0}
-  direction: 1
-  sleepy: {fileID: 21300000, guid: 08a209ea6ebb2be46ae79791de12eaf3, type: 3}
-  vision: {fileID: 0}
 --- !u!1001 &3773005006128438237
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -164,6 +164,11 @@ PrefabInstance:
       propertyPath: m_Color.b
       value: 0.99215686
       objectReference: {fileID: 0}
+    - target: {fileID: 723207556800096394, guid: 2455a83bece49c648b6102f5e23d0a65,
+        type: 3}
+      propertyPath: m_BodyType
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 723207555472972303, guid: 2455a83bece49c648b6102f5e23d0a65,
         type: 3}
       propertyPath: m_LocalRotation.x
@@ -209,11 +214,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -179.58202
       objectReference: {fileID: 0}
-    - target: {fileID: 723207555472972304, guid: 2455a83bece49c648b6102f5e23d0a65,
-        type: 3}
-      propertyPath: myCol
-      value: 
-      objectReference: {fileID: 4491550494792483276}
     - target: {fileID: 723207555472972305, guid: 2455a83bece49c648b6102f5e23d0a65,
         type: 3}
       propertyPath: m_Offset.x
@@ -269,6 +269,11 @@ PrefabInstance:
       propertyPath: m_Size.y
       value: 0.20473415
       objectReference: {fileID: 0}
+    - target: {fileID: 723207555472972304, guid: 2455a83bece49c648b6102f5e23d0a65,
+        type: 3}
+      propertyPath: myCol
+      value: 
+      objectReference: {fileID: 4491550494792483276}
     m_RemovedComponents:
     - {fileID: 723207556800096393, guid: 2455a83bece49c648b6102f5e23d0a65, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 2455a83bece49c648b6102f5e23d0a65, type: 3}

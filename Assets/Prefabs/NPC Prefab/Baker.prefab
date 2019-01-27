@@ -23,6 +23,8 @@ MonoBehaviour:
   currentFloor: 2
   elevatorManager: {fileID: 0}
   direction: 0
+  cookiePrefab: {fileID: 0}
+  cookieSpawn: {x: 0, y: 0, z: 0}
 --- !u!1001 &5122998144013858817
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -90,11 +92,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 723207556800096394, guid: 2455a83bece49c648b6102f5e23d0a65,
+        type: 3}
+      propertyPath: m_BodyType
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 723207555472972304, guid: 2455a83bece49c648b6102f5e23d0a65,
         type: 3}
       propertyPath: myCol
       value: 
       objectReference: {fileID: 5553451657527173648}
+    - target: {fileID: 723207556800096393, guid: 2455a83bece49c648b6102f5e23d0a65,
+        type: 3}
+      propertyPath: EmoteSlot
+      value: 
+      objectReference: {fileID: 391410421831733323}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2455a83bece49c648b6102f5e23d0a65, type: 3}
 --- !u!1 &5553451656770539655 stripped
@@ -106,6 +118,12 @@ GameObject:
 --- !u!61 &5553451657527173648 stripped
 BoxCollider2D:
   m_CorrespondingSourceObject: {fileID: 723207555472972305, guid: 2455a83bece49c648b6102f5e23d0a65,
+    type: 3}
+  m_PrefabInstance: {fileID: 5122998144013858817}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &391410421831733323 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 4789043975212558410, guid: 2455a83bece49c648b6102f5e23d0a65,
     type: 3}
   m_PrefabInstance: {fileID: 5122998144013858817}
   m_PrefabAsset: {fileID: 0}
