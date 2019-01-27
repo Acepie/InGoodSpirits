@@ -11,9 +11,22 @@ public class Player : MonoBehaviour
   public float maxSpeed = 7f;
   public float controlLoss = 0;
   private int tick = 0;
-  private Rect bounds = new Rect(-12f, 10f, 18, 16); 
+  private Rect bounds = new Rect(-14f, 10f, 17, 16); 
   Rigidbody2D rb2d;
   PlayerInteractable interactableHoveringOver;
+  private GameObject bodyAnim;
+  private GameObject eyeAnim;
+  void Start()
+  {
+    foreach(Transform go in transform){
+      if(go.gameObject.tag == "ghostEyes"){
+        eyeAnim = go.gameObject;
+      } 
+      if(go.gameObject.tag == "ghostBody"){
+         bodyAnim = go.gameObject;
+      }
+    }
+  }
 
   private void Awake()
   {
@@ -46,20 +59,34 @@ public class Player : MonoBehaviour
     bool bleft = rb2d.position.x < bounds.x;
     bool bright = rb2d.position.x > bounds.x + bounds.width;
 
-    if(controlLoss <= 0 && (bup || bdown || bleft || bright)){
-      if(bup) rb2d.position += new Vector2(0, 0.1f);
-      if(bdown) rb2d.position += new Vector2(0, -0.1f);
-      if(bleft) rb2d.position += new Vector2(-0.1f, 0);
-      if(bright) rb2d.position += new Vector2(0.1f, 0);
-      velocity.x = -velocity.x;
-      velocity.y = -velocity.y;
-      controlLoss = 15;
+    if((bup || bdown || bleft || bright)){
+      if(bup) rb2d.position += new Vector2(0, -0.1f);
+      if(bdown) rb2d.position += new Vector2(0, 0.1f);
+      if(bleft) rb2d.position += new Vector2(0.1f, 0);
+      if(bright) rb2d.position += new Vector2(-0.1f, 0);
+      if(controlLoss <= 0){
+        velocity.x = -velocity.x;
+        velocity.y = -velocity.y;
+        controlLoss = 15;
+      }
     }
+
+    //eyeAnimTransition("S");
 
     if(controlLoss > 0){
       up = down = left = right = false;
       controlLoss--;
     }
+
+    if(up||down||left||right){
+      bodyAnim.GetComponent<Animator>().SetBool("moveBool", true);
+    }else{
+      bodyAnim.GetComponent<Animator>().SetBool("moveBool", false);
+    }
+
+    if(up) eyeAnim.GetComponent<Animator>().SetInteger("lookDirection", 1);
+    if(down) eyeAnim.GetComponent<Animator>().SetInteger("lookDirection", -1);
+    if(!up && !down) eyeAnim.GetComponent<Animator>().SetInteger("lookDirection", 0);
 
     if (up)
     {
@@ -75,21 +102,23 @@ public class Player : MonoBehaviour
 
     if (left)
     {
+     eyeAnim.GetComponent<SpriteRenderer>().flipX = false;
       if(velocity.x > -.25) velocity.x = -initSpeed;
       velocity.x = velocity.x * speedGain;
     }
 
     if (right)
     {      
+      eyeAnim.GetComponent<SpriteRenderer>().flipX = true;
       if(velocity.x < .25) velocity.x = initSpeed;
       velocity.x = velocity.x * speedGain;
     }
 
     //Drag code, is lessened when controlLoss > 0 so drag isn't as intense
-    if(controlLoss%2==0){
+    if(controlLoss % 2 == 0){
       if(!left && !right && tick % 3 == 0){
         velocity.x = velocity.x/speedLoss;
-      } 
+      }
       if(!up && !down && tick % 3 == 0){
         velocity.y = velocity.y/speedLoss;
       }
@@ -105,6 +134,10 @@ public class Player : MonoBehaviour
     if(velocity.y > maxSpeed) velocity.y = maxSpeed;
     if(velocity.y < -maxSpeed) velocity.y = -maxSpeed;
     return velocity;
+  }
+
+  private void eyeAnimTransition(string anim){
+    //Debug.Log(eyeAnim.GetCurrentAnimatorStateInfo(0));
   }
 
   private void OnHover()
