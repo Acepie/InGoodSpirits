@@ -36,22 +36,28 @@ public class Baker : NPC
     routineToDo.ClearActions();
     //Go out to store
     routineToDo.AddAction(new Wait(.25f));
-    routineToDo.AddAction(new MoveTo(new Vector2(-5.7f, elevatorManager.GetDestinationPosition(Floor.Second).y), this));
-    routineToDo.AddAction(new Wait(.1f));
+
+    //routineToDo.AddAction(new MoveTo(new Vector2(-5.7f, elevatorManager.GetDestinationPosition(Floor.Second).y), this));
+    //routineToDo.AddAction(new Wait(.1f));
+
     routineToDo.AddAction(new MoveTo(elevatorManager.GetDestinationPosition(Floor.Second), this));
     routineToDo.AddAction(new UseElevator(this, Floor.Ground));
-    routineToDo.AddAction(new MoveTo(new Vector2(4.5f, elevatorManager.GetDestinationPosition(Floor.Ground).y), this));
-    routineToDo.AddAction(new Wait(.1f));
+
+    //routineToDo.AddAction(new MoveTo(new Vector2(4.5f, elevatorManager.GetDestinationPosition(Floor.Ground).y), this));
+    //routineToDo.AddAction(new Wait(.1f));
+
     routineToDo.AddAction(new MoveTo(new Vector2(20, elevatorManager.GetDestinationPosition(Floor.Ground).y), this));
     routineToDo.AddAction(new Wait(.5f));
 
     //Come back from store
-    routineToDo.AddAction(new MoveTo(new Vector2(5.8f, elevatorManager.GetDestinationPosition(Floor.Ground).y), this));
-    routineToDo.AddAction(new Wait(.1f));
+   // routineToDo.AddAction(new MoveTo(new Vector2(5.8f, elevatorManager.GetDestinationPosition(Floor.Ground).y), this));
+    //routineToDo.AddAction(new Wait(.1f));
     routineToDo.AddAction(new MoveTo(elevatorManager.GetDestinationPosition(Floor.Ground), this));
     routineToDo.AddAction(new UseElevator(this, Floor.Second));
-    routineToDo.AddAction(new MoveTo(new Vector2(-4.7f, elevatorManager.GetDestinationPosition(Floor.Second).y), this));
-    routineToDo.AddAction(new Wait(.1f));
+
+    //routineToDo.AddAction(new MoveTo(new Vector2(-4.7f, elevatorManager.GetDestinationPosition(Floor.Second).y), this));
+    //routineToDo.AddAction(new Wait(.1f));
+
     routineToDo.AddAction(new MoveTo(GameObject.Find("Baker Room Waypoint").transform.position, this));
     //Make cookies
     routineToDo.AddAction(new EnableItem(cookiePrefab, cookieSpawn));

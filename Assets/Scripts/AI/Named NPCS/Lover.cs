@@ -25,14 +25,16 @@ public class Lover : NPC
   private void SetRoutine()
   {
     //chill
-    routineToDo.AddAction(new Wait(.25f));
+    routineToDo.AddAction(new Wait(.75f));
     //Go To lover's room
-    routineToDo.AddAction(new MoveTo(new Vector2(-5.7f, elevatorManager.GetDestinationPosition(Floor.First).y), this));
-    routineToDo.AddAction(new Wait(.1f));
+    //routineToDo.AddAction(new MoveTo(new Vector2(-5.7f, elevatorManager.GetDestinationPosition(Floor.First).y), this));
+   // routineToDo.AddAction(new Wait(.1f));
     routineToDo.AddAction(new MoveTo(elevatorManager.GetDestinationPosition(Floor.First), this));
     routineToDo.AddAction(new UseElevator(this, Floor.Second));
-    routineToDo.AddAction(new MoveTo(new Vector2(-2.4f, elevatorManager.GetDestinationPosition(Floor.Second).y), this));
-    routineToDo.AddAction(new Wait(.1f));
+
+   // routineToDo.AddAction(new MoveTo(new Vector2(-2.4f, elevatorManager.GetDestinationPosition(Floor.Second).y), this));
+    //routineToDo.AddAction(new Wait(.1f));
+
     routineToDo.AddAction(new MoveTo(GameObject.Find("Florist Room Dest").transform.position, this));
     routineToDo.AddAction(new Wait(.1f));
     routineToDo.AddAction(new DoEmote(sadEmote, source, this, 3));
@@ -40,8 +42,10 @@ public class Lover : NPC
     //Go back to his room
     routineToDo.AddAction(new MoveTo(elevatorManager.GetDestinationPosition(Floor.Second), this));
     routineToDo.AddAction(new UseElevator(this, Floor.First));
-    routineToDo.AddAction(new MoveTo(new Vector2(-4.7f, elevatorManager.GetDestinationPosition(Floor.First).y), this));
-    routineToDo.AddAction(new Wait(.1f));
+
+   // routineToDo.AddAction(new MoveTo(new Vector2(-4.7f, elevatorManager.GetDestinationPosition(Floor.First).y), this));
+    //routineToDo.AddAction(new Wait(.1f));
+
     routineToDo.AddAction(new MoveTo(GameObject.FindGameObjectWithTag("L_Waypoint").transform.position, this));
   }
 
