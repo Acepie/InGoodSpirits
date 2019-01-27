@@ -4,24 +4,31 @@ using UnityEngine;
 
 public class EnableItem : IAction
 {
-    public GameObject itemToEnable;
+  public GameObject[] itemToEnable;
 
-    public EnableItem(GameObject g)
+  public EnableItem(GameObject[] g)
+  {
+    itemToEnable = g;
+    foreach (GameObject item in itemToEnable)
     {
-        itemToEnable = g;
-        Debug.Log(itemToEnable.name);
+      Debug.Log(item.name);
     }
+  }
 
-    public void SetItem(GameObject i)
+  public void SetItem(GameObject[] i)
+  {
+    itemToEnable = i;
+  }
+  public IEnumerator DoAction()
+  {
+    Debug.Log(Time.time);
+    foreach (GameObject item in itemToEnable)
     {
-        itemToEnable = i;
+      Debug.Log(item.name + "ENABLED!");
+      item.GetComponent<Collider2D>().enabled = true;
+      item.GetComponent<SpriteRenderer>().enabled = true;
+      SoundManager.PlaySound(item.GetComponent<AudioSource>());
     }
-    public IEnumerator DoAction()
-    {
-        Debug.Log(Time.time);
-        itemToEnable.GetComponent<Collider2D>().enabled = true;
-        itemToEnable.GetComponent<SpriteRenderer>().enabled = true;
-        SoundManager.PlaySound(itemToEnable.GetComponent<AudioSource>());
-        yield return null;
-    }
+    yield return null;
+  }
 }
