@@ -17,6 +17,11 @@ TagManager:
   - L_Waypoint
   - Front Door
   - Cookie
+  - Baker Room
+  - Lobby Room
+  - Florist Room
+  - Lover Room
+  - Invites
   layers:
   - Default
   - TransparentFX

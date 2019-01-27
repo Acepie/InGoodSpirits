@@ -13,7 +13,7 @@ public class StupidCookieScript : MonoBehaviour
     {
         if (npc == null)
         {
-            Debug.Log("SET NPC FOR STUPID COOKIE HAPPINESS");
+            Debug.Log("SET " + this.name + " FOR STUPID COOKIE HAPPINESS");
         }
     }
 

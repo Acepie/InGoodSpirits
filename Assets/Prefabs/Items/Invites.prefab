@@ -43,6 +43,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 5672337316930035647, guid: 08cdac9a3a9403b4bb322b3f5fa3fe49,
+        type: 3}
+      propertyPath: m_TagString
+      value: Invites
+      objectReference: {fileID: 0}
     - target: {fileID: 5672337316930035632, guid: 08cdac9a3a9403b4bb322b3f5fa3fe49,
         type: 3}
       propertyPath: m_Sprite
