@@ -19,7 +19,7 @@ public class Florist : NPC
     routines.AddAction(new Wait(.5f));
     routines.AddAction(new MoveTo(elevatorManager.GetDestinationPosition(Floor.Ground), this));
     routines.AddAction(new UseElevator(this, Floor.Second));
-    routines.AddAction(new MoveTo(new Vector2(5, elevatorManager.GetDestinationPosition(Floor.Second).y), this));
+    routines.AddAction(new MoveTo(GameObject.Find("Florist Room Waypoint").transform.position, this));
   }
 
   private void Update()

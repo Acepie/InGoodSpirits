@@ -33,6 +33,6 @@ public class Baker : NPC
     routines.AddAction(new Wait(.3f));
     routines.AddAction(new MoveTo(elevatorManager.GetDestinationPosition(Floor.Ground), this));
     routines.AddAction(new UseElevator(this, Floor.Second));
-    routines.AddAction(new MoveTo(new Vector2(-9, elevatorManager.GetDestinationPosition(Floor.Second).y), this));
+    routines.AddAction(new MoveTo(GameObject.Find("Baker Room Waypoint").transform.position, this));
   }
 }

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 723207555472972304}
   m_Layer: 0
   m_Name: VisionChecker
-  m_TagString: NPC
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -88,6 +88,7 @@ GameObject:
   - component: {fileID: 723207556800096394}
   - component: {fileID: 723207556800096393}
   - component: {fileID: 723207556800096392}
+  - component: {fileID: 7966555774204089379}
   m_Layer: 8
   m_Name: NPC
   m_TagString: NPC
@@ -192,11 +193,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a94aab8ee007074c93a49eed735afff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EmoteSlot: {fileID: 4789043975212558410}
-  direction: 0
-  routines: {fileID: 0}
-  itemToCreate: {fileID: 0}
   speed: 5
+  routines: {fileID: 0}
+  EmoteSlot: {fileID: 4789043975212558410}
+  itemToCreate:
+  - {fileID: 0}
+  direction: 0
 --- !u!114 &723207556800096392
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -210,6 +212,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isActioning: 0
+--- !u!58 &7966555774204089379
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 723207556800096390}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.15
 --- !u!1 &2450660258486646588
 GameObject:
   m_ObjectHideFlags: 0

@@ -6,10 +6,10 @@ public class Door : MonoBehaviour
 {
     public float doorOpenSpeed;
     Rigidbody2D rb2d;
-    private float distTraveled;
+    protected float distTraveled;
     public float maxDistMoved = 2f;
-    private Vector2 startTransformPos;
-    bool doorOpening = false;
+    protected Vector2 startTransformPos;
+    protected bool doorOpening = false;
     public AudioClip clipToPlay;
 
   private void Awake()
@@ -27,6 +27,11 @@ public class Door : MonoBehaviour
 
     }
   }
+
+    protected virtual bool CheckOpenDoor(Collider2D collision)
+    {
+        return collision.tag == "NPC" && !doorOpening;
+    }
 
   private float CalcDistanceTraveled()
   {
@@ -63,14 +68,11 @@ public class Door : MonoBehaviour
         yield return CloseDoorCoroutine();
     }
 
-  void OnTriggerStay2D(Collider2D collision)
+  protected virtual void OnTriggerStay2D(Collider2D collision)
   {
-    if (collision.tag == "NPC")
-    {
-      if (!doorOpening)
-      {
-        OpenDoor();
-      }
-    }
+        if (CheckOpenDoor(collision))
+        {
+            OpenDoor();
+        }
   }
 }

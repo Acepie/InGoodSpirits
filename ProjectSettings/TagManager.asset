@@ -15,6 +15,7 @@ TagManager:
   - Music Door
   - Baker Door
   - L_Waypoint
+  - Front Door
   layers:
   - Default
   - TransparentFX
