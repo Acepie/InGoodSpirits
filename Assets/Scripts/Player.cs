@@ -9,15 +9,31 @@ public class Player : MonoBehaviour
   public float controlLoss = 0;
   public float itemPickupRadius = 1f;
   private int tick = 0;
-  private Rect bounds = new Rect(-12f, 10f, 18, 16);
+  private Rect bounds = new Rect(-8.5f, 7.3f, 17, 14.5f);
   private Rigidbody2D rb2d;
   private PlayerInteractable interactableHoveringOver;
 
-    public bool isCarryingItem = false;
+  public bool isCarryingItem = false;
   private GameObject pickedUpItem;
 
   //State to check if we can be discovered. we are only discoverable if we're holding an object
   public bool isDiscoverable = false;
+  private GameObject bodyAnim;
+  private GameObject eyeAnim;
+  void Start()
+  {
+    foreach (Transform go in transform)
+    {
+      if (go.gameObject.tag == "ghostEyes")
+      {
+        eyeAnim = go.gameObject;
+      }
+      if (go.gameObject.tag == "ghostBody")
+      {
+        bodyAnim = go.gameObject;
+      }
+    }
+  }
 
   private void Awake()
   {
@@ -82,6 +98,19 @@ public class Player : MonoBehaviour
       controlLoss--;
     }
 
+    if (up || down || left || right)
+    {
+      bodyAnim.GetComponent<Animator>().SetBool("moveBool", true);
+    }
+    else
+    {
+      bodyAnim.GetComponent<Animator>().SetBool("moveBool", false);
+    }
+
+    if (up) eyeAnim.GetComponent<Animator>().SetInteger("lookDirection", 1);
+    if (down) eyeAnim.GetComponent<Animator>().SetInteger("lookDirection", -1);
+    if (!up && !down) eyeAnim.GetComponent<Animator>().SetInteger("lookDirection", 0);
+
     if (up)
     {
       if (velocity.y < .25) velocity.y = initSpeed;
@@ -96,12 +125,14 @@ public class Player : MonoBehaviour
 
     if (left)
     {
+      eyeAnim.GetComponent<SpriteRenderer>().flipX = false;
       if (velocity.x > -.25) velocity.x = -initSpeed;
       velocity.x = velocity.x * speedGain;
     }
 
     if (right)
     {
+      eyeAnim.GetComponent<SpriteRenderer>().flipX = true;
       if (velocity.x < .25) velocity.x = initSpeed;
       velocity.x = velocity.x * speedGain;
     }
@@ -130,6 +161,11 @@ public class Player : MonoBehaviour
     if (velocity.y > maxSpeed) velocity.y = maxSpeed;
     if (velocity.y < -maxSpeed) velocity.y = -maxSpeed;
     return velocity;
+  }
+
+  private void eyeAnimTransition(string anim)
+  {
+    //Debug.Log(eyeAnim.GetCurrentAnimatorStateInfo(0));
   }
 
   private void OnHover()

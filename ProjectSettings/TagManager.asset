@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Elevator Manager
+  - body
+  - ghostBody
+  - ghostEyes
   - NPC
   - Emote Tag
   layers:
