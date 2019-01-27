@@ -32,7 +32,16 @@ public class Door : MonoBehaviour
         return Vector2.Distance(startTransformPos, transform.position);
     }
 
-    public IEnumerator CloseDoor()
+    public void OpenDoor()
+    {
+        if (!doorOpening)
+        {
+            IEnumerator cor = OpenDoorCoroutine();
+            StartCoroutine(cor);
+        }
+    }
+
+    public IEnumerator CloseDoorCoroutine()
     {
         doorOpening = true;
         startTransformPos = transform.position;
@@ -40,13 +49,13 @@ public class Door : MonoBehaviour
         yield return new WaitForSeconds(3f);
     }
 
-    IEnumerator OpenDoor()
+    IEnumerator OpenDoorCoroutine()
     {
         doorOpening = true;
         startTransformPos = transform.position;
         rb2d.velocity = new Vector2(0, doorOpenSpeed);
         yield return new WaitForSeconds(1.25f);
-        yield return CloseDoor();
+        yield return CloseDoorCoroutine();
     }
 
     void OnTriggerStay2D(Collider2D collision)
@@ -55,7 +64,7 @@ public class Door : MonoBehaviour
         {
             if (!doorOpening)
             {
-                IEnumerator cor = OpenDoor();
+                IEnumerator cor = OpenDoorCoroutine();
                 StartCoroutine(cor);
             }
         }

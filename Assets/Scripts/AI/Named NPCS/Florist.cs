@@ -3,8 +3,13 @@
 public class Florist : NPC
 {
     bool isHome = true;
+    public GameObject THISISMYDOOR;
     new protected void Awake()
     {
+        if(THISISMYDOOR == null)
+        {
+            Debug.Log("ATTACH THE DOOR OBJECT TO THE FLORIST!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+        }
         base.Awake();
         // List<IAction> testActions = new List<IAction>();
         // testActions.Add(new MoveTo(new Vector2(5, elevatorManager.GetDestinationPosition(Floor.Ground).y), this));
@@ -30,16 +35,11 @@ public class Florist : NPC
         }
     }
 
-    public void OpenDoor()
-    {
-
-    }
-
     public void OnDoorBellRang()
     {
         if (isHome)
         {
-            OpenDoor();
+            THISISMYDOOR.GetComponent<Door>().OpenDoor();
         }
     }
 
