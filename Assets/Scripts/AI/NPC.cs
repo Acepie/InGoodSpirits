@@ -2,6 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum NPCClass
+{
+  Baker,
+  Florist,
+  Guard,
+  Lover,
+  Musician
+}
+
 public class NPC : MonoBehaviour, INPC
 {
 
