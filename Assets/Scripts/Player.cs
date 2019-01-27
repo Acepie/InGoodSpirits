@@ -64,7 +64,7 @@ public class Player : MonoBehaviour
 
   private bool ItemWithinRadius(Vector3 itemPos)
   {
-    Debug.Log(itemPos + " " + transform.position);
+    //Debug.Log(itemPos + " " + transform.position);
     return Vector3.Distance(itemPos, transform.position) < itemPickupRadius;
   }
 
