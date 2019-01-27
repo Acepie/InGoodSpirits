@@ -3,13 +3,15 @@
 public class PickupInteractable : MonoBehaviour, PlayerInteractable
 {
   private Vector3 startScale;
+    public AudioClip clipToPlay;
+
 
   public virtual void OnInteract(Player p)
   {
     p.PickUp(this);
     startScale = transform.localScale;
     transform.parent = p.transform;
-    transform.localScale = new Vector3(.5f * transform.localScale.x, .5f * transform.localScale.y, 1);
+    transform.localScale = new Vector3(.85f * transform.localScale.x, .85f * transform.localScale.y, 1);
 
   }
 

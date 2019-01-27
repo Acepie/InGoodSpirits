@@ -11,6 +11,10 @@ TagManager:
   - NPC
   - Emote Tag
   - Florist Door
+  - Lover Door
+  - Music Door
+  - Baker Door
+  - L_Waypoint
   layers:
   - Default
   - TransparentFX
@@ -44,8 +48,6 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
   m_SortingLayers:
   - name: Default
     uniqueID: 0
@@ -55,4 +57,7 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 1178457879
+    locked: 0
+  - name: Items
+    uniqueID: 1838399205
     locked: 0

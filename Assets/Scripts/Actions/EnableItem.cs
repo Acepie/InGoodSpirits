@@ -21,7 +21,7 @@ public class EnableItem : IAction
     {
       item.GetComponent<Collider2D>().enabled = true;
       item.GetComponent<SpriteRenderer>().enabled = true;
-      SoundManager.PlaySound(item.GetComponent<AudioSource>());
+      SoundManager.PlaySound(item.GetComponent<PickupInteractable>().clipToPlay);
     }
     yield return null;
   }
