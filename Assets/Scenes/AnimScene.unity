@@ -503,6 +503,9 @@ MonoBehaviour:
   speedLoss: 1.5
   maxSpeed: 10
   controlLoss: 0
+  itemPickupRadius: 1
+  isCarryingItem: 0
+  isDiscoverable: 0
 --- !u!50 &677926324
 Rigidbody2D:
   serializedVersion: 4
@@ -1233,6 +1236,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   routines: {fileID: 0}
+  EmoteSlot: {fileID: 0}
+  itemToCreate: {fileID: 0}
+  direction: 0
 --- !u!114 &1474728109
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1245,6 +1251,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4bd93c12eceee54380486da6d918c15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isActioning: 0
 --- !u!1 &1556867769
 GameObject:
   m_ObjectHideFlags: 0

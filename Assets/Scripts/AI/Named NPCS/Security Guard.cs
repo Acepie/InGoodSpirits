@@ -1,16 +1,13 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿public class SecurityGuard : NPC
+{
+    private int numWorking;
 
-public class SecurityGuard : MonoBehaviour {
+    private new void Awake()
+    {
+        base.Awake();
+    }
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    private void Loop()
+    {
+    }
 }

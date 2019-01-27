@@ -1,16 +1,27 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class Baker : MonoBehaviour {
+public class Baker : NPC
+{
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    new void Awake()
+    {
+        base.Awake();
+    }
+    // Use this for initialization
+    private void Start()
+    {
+        SetRoutine();
+        StartRoutine();
+    }
+
+    // Update is called once per frame
+    private void Update()
+    {
+    }
+
+    private void SetRoutine()
+    {
+        routines.AddAction(new Wait(.25f));
+        routines.AddAction(new EnableItem(itemToCreate));
+    }
 }
