@@ -120,9 +120,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 511e95726f6f6cc429eceff20eeff44a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  doorOpenSpeed: 20
-  maxDistMoved: 2
-  clipToPlay: {fileID: 0}
+  distTraveled: 2
+  clipToPlay: {fileID: 8300000, guid: 2c5a4f3d90a41c94383ae5e0ee7635b5, type: 3}
 --- !u!50 &7295404258049773875
 Rigidbody2D:
   serializedVersion: 4
