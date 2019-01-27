@@ -2824,8 +2824,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a97fa96988dcd5429549c2c1aac5a2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  doorOpenSpeed: 20
-  maxDistMoved: 4
+  distTraveled: 0
   clipToPlay: {fileID: 0}
 --- !u!4 &1426763912 stripped
 Transform:
@@ -3484,6 +3483,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4491550495650673489, guid: 32e12c44e35a0384c8ab0830b2a2c93a,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4491550495650673489, guid: 32e12c44e35a0384c8ab0830b2a2c93a,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 4491550495650673494, guid: 32e12c44e35a0384c8ab0830b2a2c93a,
         type: 3}
       propertyPath: m_Color.r
@@ -3698,12 +3707,12 @@ PrefabInstance:
     - target: {fileID: 5553451656770539661, guid: c37349328509b01458549b3f6d3a5497,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 4
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 5553451656770539661, guid: c37349328509b01458549b3f6d3a5497,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 4
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 5553451656770539658, guid: c37349328509b01458549b3f6d3a5497,
         type: 3}

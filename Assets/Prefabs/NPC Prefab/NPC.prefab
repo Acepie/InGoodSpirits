@@ -86,7 +86,6 @@ GameObject:
   - component: {fileID: 723207556800096396}
   - component: {fileID: 723207556800096395}
   - component: {fileID: 723207556800096394}
-  - component: {fileID: 723207556800096393}
   - component: {fileID: 723207556800096392}
   - component: {fileID: 7966555774204089379}
   m_Layer: 8
@@ -181,29 +180,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &723207556800096393
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 723207556800096390}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2a94aab8ee007074c93a49eed735afff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  homePosition: {fileID: 0}
-  homeFloor: 0
-  speed: 5
-  routineToDo: {fileID: 0}
-  EmoteSlot: {fileID: 4789043975212558410}
-  itemToCreate:
-  - {fileID: 0}
-  anim: {fileID: 0}
-  currentFloor: 0
-  elevatorManager: {fileID: 0}
-  direction: 0
 --- !u!114 &723207556800096392
 MonoBehaviour:
   m_ObjectHideFlags: 0
