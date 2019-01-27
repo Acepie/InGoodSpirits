@@ -19,7 +19,7 @@ public class Florist : NPC
 
   private void SetRoutine()
   {
-    routineToDo.AddAction(new Wait(.1f));
+    routineToDo.AddAction(new Wait(1f));
     routineToDo.AddAction(new MoveTo(new Vector2(-0.9f, elevatorManager.GetDestinationPosition(Floor.Second).y), this));
     routineToDo.AddAction(new Wait(.1f));
     routineToDo.AddAction(new MoveTo(elevatorManager.GetDestinationPosition(Floor.Second), this));
@@ -56,13 +56,18 @@ public class Florist : NPC
   {
     if (isHome)
     {
+      if(GameObject.Find("Lover").GetComponent<Lover>().atDoor){
+        AddFriends(GameObject.Find("Lover").GetComponent<Lover>());
+        GameObject.Find("Lover").GetComponent<Lover>().hasBouquet = false;
+        Debug.Log("LOVER AND FLORIST ARE FRIENDS");
+      }
       door.GetComponent<Door>().OpenDoor();
     }
   }
 
   private void OnTriggerEnter2D(Collider2D collision)
   {
-    if (collision.tag == "Floorist Door")
+    if (collision.tag == "Florist Door")
     {
       isHome = !isHome;
     }
