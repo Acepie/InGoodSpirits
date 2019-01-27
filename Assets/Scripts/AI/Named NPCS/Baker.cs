@@ -2,7 +2,8 @@
 
 public class Baker : NPC
 {
-
+    public GameObject cookiePrefab;
+    public Vector3 cookieSpawn;
 
     new void Awake()
     {
@@ -14,7 +15,7 @@ public class Baker : NPC
     // Use this for initialization
     private void Start()
     {
-        SetRoutine();
+        SetDefaultRoutine();
         normalRoutine = routineToDo.GetActions();
         StartRoutine();
     }
@@ -27,18 +28,26 @@ public class Baker : NPC
         }
     }
 
-    private void SetRoutine()
+    /// <summary>
+    /// Default Routine: Go out to store. Come back. Make cookies. Repeat
+    /// </summary>
+    private void SetDefaultRoutine()
     {
-        routineToDo.AddAction(new Wait(.25f));
-        routineToDo.AddAction(new EnableItem(itemToCreate));
+        routineToDo.ClearActions();
+        //Go out to store
         routineToDo.AddAction(new Wait(.25f));
         routineToDo.AddAction(new MoveTo(elevatorManager.GetDestinationPosition(Floor.Second), this));
         routineToDo.AddAction(new UseElevator(this, Floor.Ground));
         routineToDo.AddAction(new MoveTo(new Vector2(20, elevatorManager.GetDestinationPosition(Floor.Ground).y), this));
-        routineToDo.AddAction(new Wait(.3f));
+        routineToDo.AddAction(new Wait(.5f));
+
+        //Come back from store
         routineToDo.AddAction(new MoveTo(elevatorManager.GetDestinationPosition(Floor.Ground), this));
         routineToDo.AddAction(new UseElevator(this, Floor.Second));
         routineToDo.AddAction(new MoveTo(GameObject.Find("Baker Room Waypoint").transform.position, this));
+        //Make cookies
+        routineToDo.AddAction(new EnableItem(cookiePrefab, cookieSpawn));
+        routineToDo.AddAction(new Wait(.25f));
     }
 
 }

@@ -687,7 +687,7 @@ Transform:
   - {fileID: 1111346134}
   - {fileID: 297467368}
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &223508314
 PrefabInstance:
@@ -1838,6 +1838,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76371ebbaf334084c8e8a651113dc01e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &757542931
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 757542932}
+  m_Layer: 0
+  m_Name: CookieLocation
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &757542932
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 757542931}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -8.790334, y: 6.875201, z: 0}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &766297988
 GameObject:
   m_ObjectHideFlags: 0
@@ -3793,6 +3823,22 @@ PrefabInstance:
       propertyPath: itemToCreate.Array.data[0]
       value: 
       objectReference: {fileID: 2100054428}
+    - target: {fileID: 2145553458360608228, guid: c37349328509b01458549b3f6d3a5497,
+        type: 3}
+      propertyPath: cookiePrefab
+      value: 
+      objectReference: {fileID: 3811873872575873279, guid: edb4419c7b7e3244d9084b48a4bffcc4,
+        type: 3}
+    - target: {fileID: 2145553458360608228, guid: c37349328509b01458549b3f6d3a5497,
+        type: 3}
+      propertyPath: cookieSpawn.x
+      value: -8.790334
+      objectReference: {fileID: 0}
+    - target: {fileID: 2145553458360608228, guid: c37349328509b01458549b3f6d3a5497,
+        type: 3}
+      propertyPath: cookieSpawn.y
+      value: 6.875201
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5553451656770539656, guid: c37349328509b01458549b3f6d3a5497, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: c37349328509b01458549b3f6d3a5497, type: 3}

@@ -16,7 +16,6 @@ public class Lover : NPC {
         base.Awake();
         currentFloor = Floor.First;
         homeFloor = Floor.First;
-  
     }
 
     private void SetRoutine()
