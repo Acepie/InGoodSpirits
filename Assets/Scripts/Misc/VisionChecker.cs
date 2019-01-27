@@ -50,6 +50,9 @@ public class VisionChecker : MonoBehaviour
         else
         {
           parent_Script.SetEmote(alerted_sprite, true);
+          IEnumerator cor = BeginEndGameCor(4);
+          StartCoroutine(cor);
+          
         }
       }
     }
@@ -77,5 +80,11 @@ public class VisionChecker : MonoBehaviour
   void OnTriggerExit2D(Collider2D col)
   {
     parent_Script.SetEmoteVisibility(false);
+  }
+
+  IEnumerator BeginEndGameCor(float timetoEnd)
+  {
+    yield return new WaitForSeconds(timetoEnd);
+    Application.LoadLevel(Application.loadedLevel);
   }
 }
