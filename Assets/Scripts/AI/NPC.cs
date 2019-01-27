@@ -24,12 +24,14 @@ public class NPC : MonoBehaviour, INPC
   public SpriteRenderer EmoteSlot;
   public HashSet<NPC> friendSet;
   public GameObject[] itemToCreate;
+  public Animator anim;
 
   protected ElevatorManager elevatorManager;
   public FacingDirection direction = FacingDirection.RIGHT;
 
   protected void Awake()
   {
+    anim = GetComponent<Animator>();
     rb2d = GetComponent<Rigidbody2D>();
     routines = GetComponent<Routine>();
     elevatorManager = GameObject.FindGameObjectWithTag("Elevator Manager").GetComponent<ElevatorManager>();
